@@ -1,12 +1,12 @@
 :root {
-    --primary-color: #414c31;
-    --primary-subtle-color: #586642;
-    --secondary-color: #f9c32c;
-    --light-bg: #fcf5e1;
-    --light-bg-alt: #f3ead3;
-    --text-dark: #37342e;
-    --text-light: #fdf5e1;
-    --text-muted: #a09578;
+    --primary-color: #354a45; /* Gunmetal Green - rich, dark green-black */;
+    --primary-subtle-color: #5a736c; /* noble fir - muted green */;
+    --secondary-color: #e9a97d; /* Dusty coral - highlight */;
+    --light-bg: #e9efe8; /* adjusted pale mint background */;
+    --light-bg-alt: #dce3df; /* lighter alt for sections */;
+    --text-dark: #2a3a36;;
+    --text-light: #fef9ec;
+    --text-muted: #95a69e;
 }
 
 
@@ -292,7 +292,7 @@ body {
 }
 
 .btn-custom {
-    background-color: #fdd052;
+    background-color: var(--secondary-color);
     border: 2px solid var(--text-dark);
     border-radius: 9px;
     padding: 23px 47px;
@@ -302,8 +302,11 @@ body {
 }
 
 .btn-custom:hover {
+    background-color: var(--primary-color); /* Gunmetal green */
+    color: var(--text-light);
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
 }
 
 .form-control-custom {
