@@ -270,7 +270,7 @@ body {
 }
 
 .hero-title {
-    font-size: 200px;
+    font-size: 166px;
     letter-spacing: 2.00px;
     line-height: 0.8em;
 }
@@ -751,4 +751,23 @@ body {
     .banner-image {
         margin-top: 0;
     }
+}
+
+/* For fine-tuning position for my portrait Image on homepage and making it have a cool border, etc */
+
+.about-image-adjust {
+  margin-top: 120px;
+  border: 3px solid var(--secondary-color);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  filter: sepia(10%) contrast(1.05);
+  transition: all 0.4s ease;
+  display: block;
+}
+
+.about-image-adjust:hover {
+  transform: scale(1.03);
+  filter: sepia(20%) contrast(1.1) brightness(1.05);
+  box-shadow: 0 20px 35px rgba(233, 169, 125, 0.4);
+  border-color: #fbd1bb;
 }
