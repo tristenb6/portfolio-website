@@ -264,6 +264,11 @@ body {
     color: transparent;
 }
 
+.section-title-bg2 {
+  -webkit-text-stroke: 2px var(--secondary-color); /* Dusty Coral */
+  color: transparent;
+}
+
 .hero-title {
     font-size: 200px;
     letter-spacing: 2.00px;
@@ -273,6 +278,11 @@ body {
 .hero-bg-text {
     -webkit-text-stroke: 2px rgba(226, 219, 201, 0.3);
     color: transparent;
+}
+
+.hero-bg-text2 {
+  -webkit-text-stroke: 2px var(--secondary-color); /* Dusty Coral */
+  color: transparent;
 }
 
 .content-title {
