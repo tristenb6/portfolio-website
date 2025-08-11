@@ -790,3 +790,15 @@ body {
   flex-shrink: 0; /* prevents icon from shrinking */
   margin-top: 0.3rem; /* aligns icon vertically with text */
 }
+
+/* Skills Section List */
+.badge-custom {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 0.95rem; /* Increase size */
+  padding: 0.5em 0.9em; /* Add a bit more padding */
+  font-weight: 700; /* Bold text */
+  border-radius: 12px; /* Slightly rounded */
+  line-height: 2; /* More vertical spacing between rows */
+  margin-bottom: 6px; /* Extra space under each badge */
+}
