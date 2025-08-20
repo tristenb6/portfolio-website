@@ -802,3 +802,75 @@ body {
   line-height: 2; /* More vertical spacing between rows */
   margin-bottom: 6px; /* Extra space under each badge */
 }
+
+
+/* Awards timeline style */
+.awards-timeline {
+  position: relative;
+  border-left: 2px solid #ff7a00; /* custom button orange */
+  padding-left: 25px;
+  margin-left: 10px;
+}
+
+.awards-timeline .award {
+  position: relative;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.awards-timeline .award::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff7a00; /* custom orange */
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  animation: pulseDot 2s infinite;
+}
+
+/* Hover effect for award cards */
+.awards-timeline .award:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  background: rgba(255, 122, 0, 0.06); /* subtle orange glow */
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Pulsing dot animation */
+@keyframes pulseDot {
+  0%   { transform: scale(1); opacity: 1; }
+  50%  { transform: scale(1.4); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+
+/* Experience: hover lift + logo treatment */
+.experience-card {
+  transition: all 0.28s ease;
+  border-radius: 10px;           /* soften edges just a bit */
+  padding: 10px;                 /* tiny internal pad so the hover bg doesn’t touch text */
+}
+.experience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+  background: rgba(255,122,0,0.05); /* your orange tint */
+}
+
+/* Company logos */
+.company-logo {
+  width: 28px;                   /* small badge size */
+  height: 28px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition: all 0.28s ease;
+}
+.experience-card:hover .company-logo {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.05);
+}
