@@ -874,3 +874,65 @@ body {
   opacity: 1;
   transform: scale(1.05);
 }
+/* Chocolat Lightbox minimal styles */
+.chocolat-wrapper { position: fixed; inset: 0; z-index: 10050; opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+.chocolat-wrapper.chocolat-visible { opacity: 1; pointer-events: auto; }
+.chocolat-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.9); opacity: 0; transition: opacity .25s ease; }
+.chocolat-overlay.chocolat-visible { opacity: 1; }
+.chocolat-layout { position: absolute; inset: 0; display: flex; flex-direction: column; }
+.chocolat-top, .chocolat-bottom { position: relative; z-index: 2; padding: 8px 12px; color: #fff; }
+.chocolat-center { flex: 1; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.chocolat-image-canvas { position: relative; width: 100%; height: 100%; max-width: 100%; max-height: 100%; }
+.chocolat-image-wrapper { position: relative; margin: 0 auto; }
+.chocolat-img { display: block; max-width: 100%; height: auto; }
+.chocolat-left, .chocolat-right { position: absolute; top: 0; bottom: 0; width: 20%; cursor: pointer; }
+.chocolat-left { left: 0; }
+.chocolat-right { right: 0; }
+.chocolat-close { position: absolute; top: 12px; right: 12px; z-index: 3; cursor: pointer; }
+.chocolat-pagination, .chocolat-description, .chocolat-set-title { color: #fff; }
+
+/* Portfolio filter active state */
+.button-group .btn.is-checked {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--text-dark);
+}
+
+/* Portfolio filter pill style */
+.button-group .btn.btn-custom {
+    border-radius: 999px;
+    padding: 14px 26px;
+    font-size: 16px;
+    line-height: 1.2;
+}
+.button-group .btn.btn-custom:hover {
+    transform: translateY(-1px);
+}
+
+/* Back-to-Portfolio button styling */
+.btn-back {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--text-dark);
+    color: var(--text-dark);
+    border-radius: 9px;
+    font-weight: 700;
+}
+.btn-back:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* Ensure header back-links (older pages) match .btn-back */
+header a.btn[href$="portfolio.html"] {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--text-dark);
+    color: var(--text-dark);
+}
+header a.btn[href$="portfolio.html"]:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* Title letter highlight animation */
+.title-letter { transition: color .25s ease; }
+.title-letter.highlight { color: var(--secondary-color); }

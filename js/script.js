@@ -243,8 +243,44 @@
           fullscreenMenu.style.display = 'none';
           document.body.style.overflow = 'auto';
         }, 800);
-      });
     });
+
+    // Animate page title letters (for elements with data-animate-title)
+    (function animateTitles() {
+      const nodes = document.querySelectorAll('[data-animate-title]');
+      nodes.forEach((node) => {
+        const text = (node.textContent || '').trim();
+        if (!text) return;
+        // Avoid double-wrapping
+        if (node.dataset.animated === 'true') return;
+        node.dataset.animated = 'true';
+        node.textContent = '';
+        const spans = [];
+        for (let i = 0; i < text.length; i++) {
+          const ch = text[i];
+          if (ch === ' ') {
+            node.appendChild(document.createTextNode(' '));
+            continue;
+          }
+          const s = document.createElement('span');
+          s.className = 'title-letter';
+          s.textContent = ch;
+          node.appendChild(s);
+          spans.push(s);
+        }
+        // Stagger highlight per letter
+        // Allow per-element overrides via data attributes
+        const perLetterDelay = parseInt(node.getAttribute('data-animate-delay')) || 260; // ms
+        const highlightDuration = parseInt(node.getAttribute('data-animate-duration')) || 800; // ms
+        spans.forEach((s, idx) => {
+          setTimeout(() => {
+            s.classList.add('highlight');
+            setTimeout(() => s.classList.remove('highlight'), highlightDuration);
+          }, idx * perLetterDelay);
+        });
+      });
+    })();
+  });
 
   });
 
