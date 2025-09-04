@@ -8,7 +8,7 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&family=Great+Vibes&display=swap"
     rel="stylesheet" />
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -178,7 +178,7 @@
           <div class="menu-social-links mt-5">
             <a href="https://github.com/tristenb6" class="social-link"><i class="fab fa-github"></i></a>
             <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/tristenbest" class="social-link"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/tristenbest"><i class="fab fa-linkedin social-icon text-light-custom"></i></a>  <a href="#" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
           </div>
         </div>
         <div class="col-lg-5 text-white py-3">
@@ -192,15 +192,22 @@
   <header class="position-relative">
     <div class="bg-dark-custom p-2 p-lg-5 m-3 m-lg-4 rounded-4">
 
-      <nav class="d-flex justify-content-between">
+      <nav class="d-flex justify-content-between align-items-center site-nav">
         <div class="text-light-custom content-title fw-bold" data-animate-title data-aos="fade-right" data-aos-duration="1000">Tristen</div>
 
-        <button class="menu-toggle-btn btn d-flex align-items-center gap-2" data-aos="fade-left"
+        <div class="top-nav d-none d-lg-flex align-items-center gap-3" data-aos="fade-left" data-aos-duration="1000">
+          <a href="index.html" class="btn btn-custom">Home</a>
+          <a href="portfolio.html" class="btn btn-custom active">Portfolio</a>
+          <a href="blog.html" class="btn btn-custom">Blog</a>
+        </div>
+
+        <button class="menu-toggle-btn btn d-flex align-items-center gap-2 d-lg-none" data-aos="fade-left"
           data-aos-duration="1000">
           <span class="text-light-custom fw-bold">MENU</span>
           <i class="fas fa-bars text-light-custom"></i>
         </button>
       </nav>
+      <div class="nav-spacer d-none d-lg-block"></div>
 
     </div>
 
@@ -235,19 +242,31 @@
       <div class="pb-5 mb-5">
         <div class="grid p-0 clearfix row row-cols-2 row-cols-lg-3 row-cols-xl-4" data-aos="fade-up">
           <div class="col mb-4 portfolio-item photography">
-            <a href="projects/photography/film-roll-portraits/index.html" data-lightbox="illustration-1" data-title="illustration-1"
-              title="Sample Caption goes here for Portfolio Item 1."><img src="images/portfolio-thumb-1.jpg"
-                class="img-fluid rounded-4" alt="portfolio"></a>
+            <a href="projects/photography/film-roll-portraits/index.html" class="project-card photography text-decoration-none">
+              <span class="chip">Photography</span>
+              <div class="title">Film Roll Portraits</div>
+              <div class="subtitle">35mm series • Portra 400</div>
+              <div class="meta"><i class="fas fa-calendar"></i> 2025</div>
+              <div class="tiny-action">View project</div>
+            </a>
           </div>
           <div class="col mb-4 portfolio-item branding graphicdesign academic">
-            <a href="projects/academic/sample-research/index.html" data-lightbox="illustration-3" data-title="illustration-3"
-              title="Sample Caption goes here for Portfolio Item 3."><img src="images/portfolio-thumb-3.jpg"
-                class="img-fluid rounded-4" alt="portfolio"></a>
+            <a href="projects/academic/sample-research/index.html" class="project-card academic text-decoration-none">
+              <span class="chip">Academic</span>
+              <div class="title">Sample Research</div>
+              <div class="subtitle">Policy brief • 2025</div>
+              <div class="meta"><i class="fas fa-calendar"></i> 2025</div>
+              <div class="tiny-action">View project</div>
+            </a>
           </div>
           <div class="col mb-4 portfolio-item photography">
-            <a href="projects/photography/city-street-walk/index.html" data-lightbox="illustration-2" data-title="illustration-2"
-              title="Sample Caption goes here for Portfolio Item1 2."><img src="images/portfolio-thumb-2.jpg"
-                class="img-fluid rounded-4" alt="portfolio"></a>
+            <a href="projects/photography/city-street-walk/index.html" class="project-card photography text-decoration-none">
+              <span class="chip">Photography</span>
+              <div class="title">City Street Walk</div>
+              <div class="subtitle">Black & white • HP5+</div>
+              <div class="meta"><i class="fas fa-calendar"></i> 2025</div>
+              <div class="tiny-action">View project</div>
+            </a>
           </div>
 
         </div>
@@ -259,47 +278,24 @@
   <main></main>
 
   <!-- Footer Section -->
-  <footer class="py-5 bg-dark-custom rounded-4 m-3 m-lg-4" data-aos="clip-bottom">
+    <footer class="site-footer bg-dark-custom rounded-4 m-3 m-lg-4" data-aos="clip-bottom">
     <div class="container">
-      <div class="row mb-5">
-        <div class="col-md-3">
-          <h3 class="text-light-custom content-title mb-4">Tristen</h3>
-          <p class="text-light-custom mb-4">
-            Connect with me on social platforms below.
-          </p>
-          <div class="d-flex flex-wrap gap-3">
-            <a href="https://github.com/tristenb6"><i class="fab fa-github social-icon text-light-custom"></i></a>
-            <a href="#"><i class="fab fa-instagram social-icon text-light-custom"></i></a>
-            <a href="https://www.linkedin.com/in/tristenbest"><i class="fab fa-linkedin social-icon text-light-custom"></i></a>
-          </div>
+      <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between gap-3">
+        <div class="d-flex align-items-center gap-3">
+          <div class="text-light-custom content-title brand-script">TB</div>
+          <div class="text-light-custom small">Energy and climate professional</div>
         </div>
-
-        <div class="col-md-2">
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="#" class="footer-link text-yellow">Home</a></li>
-            <li class="mb-2"><a href="#" class="footer-link">Portfolio</a></li>
-          </ul>
+        <div class="text-light-custom">
+          <a href="mailto:tristenbest6@gmail.com" class="footer-email"><i class="fas fa-envelope me-2"></i>tristenbest6@gmail.com</a>
         </div>
-
-        <div class="col-md-2">
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="#" class="footer-link">Blog</a></li>
-          </ul>
-        </div>
-
-        <div class="col-md-5">
-          <p class="text-light-custom mb-4">
-            Just feel free to contact if you wanna collaborate with me, or simply have a conversation.
-          </p>
-          <p class="text-light-custom fst-italic fs-5"><a href="mailto:contact@yourwebsite.com"
-              class="text-light-custom text-decoration-none">tristenbest6@gmail.com</a></p>
+        <div class="d-flex flex-wrap gap-3 align-items-center">
+          <a href="https://github.com/tristenb6"><i class="fab fa-github social-icon text-light-custom"></i></a>
+          <a href="#"><i class="fab fa-instagram social-icon text-light-custom"></i></a>
+          <a href="https://www.linkedin.com/in/tristenbest"><i class="fab fa-linkedin social-icon text-light-custom"></i></a>  <a href="#" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
         </div>
       </div>
-
-      <div class="border-top border-light pt-4">
-        <p class="text-light-custom text-center">
-          Â©2025 Tristen.
-        </p>
+      <div class="border-top border-light pt-3 mt-3">
+        <p class="text-light-custom text-center small mb-0">&copy; 2025 Tristen. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -315,3 +311,7 @@
 </body>
 
 </html>
+
+
+
+

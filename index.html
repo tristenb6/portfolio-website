@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,7 +8,7 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&family=Great+Vibes&display=swap"
     rel="stylesheet" />
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -191,15 +191,24 @@
   <header class="position-relative">
     <div class="bg-dark-custom p-2 p-lg-5 m-3 m-lg-4 rounded-4">
 
-      <nav class="d-flex justify-content-between">
-        <div class="text-light-custom content-title fw-bold" data-aos="fade-right" data-aos-duration="1000">Welcome to... </div>
+      <nav class="d-flex justify-content-between align-items-center site-nav">
+        <div class="accent-welcome" data-aos="fade-right" data-aos-duration="1000">
+          <span class="accent-text">Welcome</span>
+        </div>
 
-        <button class="menu-toggle-btn btn d-flex align-items-center gap-2" data-aos="fade-left"
+        <div class="top-nav d-none d-lg-flex align-items-center gap-3" data-aos="fade-left" data-aos-duration="1000">
+          <a href="index.html" class="btn btn-custom active">Home</a>
+          <a href="portfolio.html" class="btn btn-custom">Portfolio</a>
+          <a href="blog.html" class="btn btn-custom">Blog</a>
+        </div>
+
+        <button class="menu-toggle-btn btn d-flex align-items-center gap-2 d-lg-none" data-aos="fade-left"
           data-aos-duration="1000">
           <span class="text-light-custom fw-bold">MENU</span>
           <i class="fas fa-bars text-light-custom"></i>
         </button>
       </nav>
+      <div class="nav-spacer d-none d-lg-block"></div>
 
       <div class="w-100 text-center overflow-hidden">
         <div class="syne-font hero-title text-yellow" data-animate-title data-aos="fade-up">Tristen's</div>
@@ -278,7 +287,7 @@
               
               <!-- EXPERIENCE 1 -->
               <div class="mb-5 experience-card">
-                <div class="date-text mb-2">January 2025 – June 2025</div>
+                <div class="date-text mb-2">January 2025 � June 2025</div>
                 <h3 class="subtitle mb-2">Graduate Policy Analyst</h3>
               
                 <!-- org row with optional logo -->
@@ -295,14 +304,14 @@
                   <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Conducted stakeholder interviews and Q methodology research
                     to identify local energy priorities in North Carolina.</li>
                   <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Produced a final report and policy brief outlining findings
-                    for UNC’s Energy Transition Initiative and local partners.</li>
+                    for UNC�s Energy Transition Initiative and local partners.</li>
                   <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Led analysis of survey results using RStudio and
                     qualitative research tools.</li>
                 </ul>
               </div>
               <!-- EXPERIENCE 2 -->
               <div class="mb-5 experience-card">
-                <div class="date-text mb-2">August 2024 – May 2025</div>
+                <div class="date-text mb-2">August 2024 � May 2025</div>
                 <h3 class="subtitle mb-2">Graduate Teaching Instructor</h3>
               
                 <div class="d-flex align-items-center gap-2">
@@ -325,7 +334,7 @@
               </div>
               <!-- EXPERIENCE 3 -->
               <div class="mb-5 experience-card">
-                <div class="date-text mb-2">May 2024 – September 2024</div>
+                <div class="date-text mb-2">May 2024 � September 2024</div>
                 <h3 class="subtitle mb-2">International Economist Trainee</h3>
               
                 <div class="d-flex align-items-center gap-2">
@@ -338,17 +347,17 @@
                   <i class="fas fa-map-marker-alt me-2"></i>Washington, DC
                 </p>
                 <ul class="styled-bullets ps-0 mt-3">
-                  <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Lead international trade analyst on a 5‑yr adequacy review
+                  <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Lead international trade analyst on a 5-yr adequacy review
                     conducting research on export markets and tariff treatments.</li>
                   <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Assisted 17 analysts by cleaning energy data to assess GHG
                     intensities of U.S.-produced steel and aluminum products.</li>
-                  <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Developed key figures and fact‑finding summaries using
+                  <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Developed key figures and fact-finding summaries using
                     trade atlas data for the public release of antidumping briefing.</li>
                 </ul>
               </div>
               <!-- EXPERIENCE 4 -->
               <div class="mb-5 experience-card">
-                <div class="date-text mb-2">August 2023 – December 2023</div>
+                <div class="date-text mb-2">August 2023 � December 2023</div>
                 <h3 class="subtitle mb-2">Undergraduate Policy Analyst</h3>
               
                 <div class="d-flex align-items-center gap-2">
@@ -361,7 +370,7 @@
                   <i class="fas fa-map-marker-alt me-2"></i>Chapel Hill, NC
                 </p>
                 <ul class="styled-bullets ps-0 mt-3">
-                  <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Partnered with a 5‑member team to research wetland
+                  <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Partnered with a 5-member team to research wetland
                     degradation and effects on water quality in Carteret County, NC.</li>
                   <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Utilized ArcGIS for geospatial analysis of 7 land use
                     categories, providing valuable insights to municipal policymakers.</li>
@@ -371,7 +380,7 @@
               </div>
               <!-- EXPERIENCE 5 -->
               <div class="mb-5 experience-card">
-                <div class="date-text mb-2">May 2023 – August 2023</div>
+                <div class="date-text mb-2">May 2023 � August 2023</div>
                 <h3 class="subtitle mb-2">Risk Management Supervision Intern</h3>
               
                 <div class="d-flex align-items-center gap-2">
@@ -385,10 +394,10 @@
                 </p>
                 <ul class="styled-bullets ps-0 mt-3">
                   <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Prepared written reports for capital market specialists on
-                    high‑interest rate sensitivity for 200–400 basis point models.</li>
+                    high-interest rate sensitivity for 200�400 basis point models.</li>
                   <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Researched capital and asset quality compliance using
                     quarterly call report and UBPR statistics for 6 component areas.</li>
-                  <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Actively participated in 3 executive‑level board exit
+                  <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Actively participated in 3 executive-level board exit
                     meetings and bank examinations at 4 complex financial institutions.</li>
                 </ul>
               </div>
@@ -459,56 +468,54 @@
         <div class="syne-font section-title section-title-bg" data-aos="fade-up" data-aos-delay="200">Skills</div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 py-5">
-          <div class="bg-light-alt p-5 rounded-4" data-aos="clip-bottom" data-aos-duration="1000">
-            <div class="content-title mb-4 fw-bold">Skills</div>
-
-            <div class="mb-5">
-              <div class="date-text mb-2">Technical</div>
-              <p>
-               <span class="badge badge-custom me-2">Stata</span>
-               <span class="badge badge-custom me-2">RStudio</span>
-               <span class="badge badge-custom me-2">Tableau</span>
-               <span class="badge badge-custom me-2">ArcGIS</span>
-               <span class="badge badge-custom">MS Office Suite</span>
-               <span class="badge badge-custom">Github</span>
-              </p>
+      <div class="row py-5 mt-5" data-aos="clip-bottom" data-aos-duration="1000">
+        <div class="col-md-4 mb-4">
+          <div class="skill-card h-100" tabindex="0">
+            <div class="d-flex align-items-center gap-3">
+              <div class="skill-icon"><i class="fas fa-microscope"></i></div>
+              <div class="title">Analytical & Research</div>
             </div>
-
-            <div class="mb-5">
-              <div class="date-text mb-2">Analytical & Research</div>
-              <p>
-               <span class="badge badge-custom me-2">Economic & Policy Analysis</span>
-               <span class="badge badge-custom me-2">Impact Evaluation (DiD, Panel Data)</span>
-               <span class="badge badge-custom me-2">Regulatory & Legislative Research</span>
-               <span class="badge badge-custom me-2">Stakeholder Data Collection</span>
-               <span class="badge badge-custom">Survey Methodology</span>
-              </p>
-            </div>
-
-            <div class="mb-5">
-              <div class="date-text mb-2">Communication</div>
-              <p>
-               <span class="badge badge-custom me-2">Policy Writing & Brief Development</span>
-               <span class="badge badge-custom me-2">Data Visualization Storytelling</span>
-               <span class="badge badge-custom me-2">Public Speaking</span>
-               <span class="badge badge-custom me-2">Presentation Design</span>
-               <span class="badge badge-custom">Human-centered Design</span>
-              </p>
-            </div>
-
-            <div class="mb-5">
-              <div class="date-text mb-2">Languages</div>
-              <p>
-               <span class="badge badge-custom me-2">English (Native)</span>
-               <span class="badge badge-custom me-2">German (Beginner)</span>
-              </p>
-            </div>
-
+            <p class="desc">From policy design to impact evaluation � methods that connect data to decisions.</p>
+            <ul class="skill-list">
+              <li>Economic & Policy Analysis</li>
+              <li>Impact Evaluation (DiD, Panel)</li>
+              <li>Regulatory & Legislative Research</li>
+              <li>Stakeholder Data Collection</li>
+            </ul>
           </div>
         </div>
-        <div class="col-md-6"></div>
+        <div class="col-md-4 mb-4">
+          <div class="skill-card h-100" tabindex="0">
+            <div class="d-flex align-items-center gap-3">
+              <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+              <div class="title">Technical</div>
+            </div>
+            <p class="desc">Tools I use for analysis, mapping, and visualization.</p>
+            <div class="tool-chips">
+              <span class="tool-chip">Stata</span>
+              <span class="tool-chip">R</span>
+              <span class="tool-chip">Tableau</span>
+              <span class="tool-chip">ArcGIS</span>
+              <span class="tool-chip">GitHub</span>
+              <span class="tool-chip">Excel</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="skill-card h-100" tabindex="0">
+            <div class="d-flex align-items-center gap-3">
+              <div class="skill-icon"><i class="fas fa-comments"></i></div>
+              <div class="title">Communication</div>
+            </div>
+            <p class="desc">Clarity for busy readers � from briefs to live talks.</p>
+            <ul class="skill-list">
+              <li>Policy briefs & executive summaries</li>
+              <li>Data storytelling & visual design</li>
+              <li>Public speaking & facilitation</li>
+              <li>Human-centered design</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -537,7 +544,7 @@
             </p>
             <p class="mb-3 text-muted-custom">
               <span class="fw-bold">Special Assistance</span><br>
-              Contributed to product-level emissions-intensity methodology and data support across Scope 1–3 for covered steel and aluminum products.
+              Contributed to product-level emissions-intensity methodology and data support across Scope 1�3 for covered steel and aluminum products.
             </p>
             
             <!-- Correct button style -->
@@ -556,7 +563,7 @@
             </p>
             <p class="mb-3 text-muted-custom">
               <span class="fw-bold">Lead Author</span><br>
-              Difference-in-differences analysis of SNAP recipiency and food inflation (2021–2022), with IPW balancing and multinomial logit on self-reported sufficiency.
+              Difference-in-differences analysis of SNAP recipiency and food inflation (2021�2022), with IPW balancing and multinomial logit on self-reported sufficiency.
             </p>
             <!-- Correct button style -->
             <a href="documents/Ceteris Paribus Inaugural Journal.pdf" target="_blank" rel="noopener" class="btn btn-custom d-flex align-items-center gap-2">
@@ -595,7 +602,7 @@
                   <i class="fas fa-award text-yellow me-2"></i> Carolina Research Scholar
                 </h3>
                 <p class="text-muted-custom fw-bold mb-0">
-                  Recognized with a “Carolina Research Scholar” designation on transcript for contributions to UNC’s intellectual and cultural climate.
+                  Recognized with a �Carolina Research Scholar� designation on transcript for contributions to UNC�s intellectual and cultural climate.
                 </p>
               </div>
 
@@ -606,7 +613,7 @@
                   <i class="fas fa-trophy text-yellow me-2"></i> FDIC Academic Challenge National Finalist
                 </h3>
                 <p class="text-muted-custom fw-bold mb-0">
-                  Selected as 1 of 5 teams nationwide to compete in the FDIC’s Academic Challenge on “The Impacts of Higher Interest Rates on the Banking Sector.”
+                  Selected as 1 of 5 teams nationwide to compete in the FDIC�s Academic Challenge on �The Impacts of Higher Interest Rates on the Banking Sector.�
                 </p>
                 <a href="YOUR-FDIC-PAPER.pdf" target="_blank" rel="noopener" class="btn btn-custom d-inline-flex align-items-center gap-2">
                   <span>Read Selected Paper</span>
@@ -759,90 +766,43 @@
     <div class="bg-light-alt position-absolute bottom-0 start-0 w-100" style="height: 50%; border-radius: 20px;"></div>
 
     <div class="container position-relative">
-      <h2 class="content-title text-center mb-5" data-aos="fade-up">My Latest Works</h2>
+      <h2 class="content-title text-center mb-5" data-aos="fade-up">Featured Projects</h2>
 
       <!-- Swiper Works -->
       <div class="swiper worksSwiper mb-5" data-aos="fade-up" data-aos-delay="200">
         <div class="swiper-wrapper">
 
           <div class="swiper-slide">
-            <div class="card card-custom">
-              <img src="images/portfolio-thumb-1.jpg" class="img-fluid" alt="Solaris App Interface" />
+            <a class="card card-custom text-decoration-none" href="projects/photography/film-roll-portraits/index.html">
+              <span class="chip">Photography</span>
+              <img src="images/portfolio-thumb-1.jpg" class="img-fluid" alt="Film Roll Portraits" />
+              <div class="card-overlay"><span>View project</span></div>
               <div class="card-body text-center">
-                <div class="date-text mb-2">UI/UX Design</div>
-                <h3 class="subtitle">Solaris App Interface</h3>
+                <h3 class="subtitle text-dark mb-0">Film Roll Portraits</h3>
               </div>
-            </div>
+            </a>
           </div>
 
           <div class="swiper-slide">
-            <div class="card card-custom">
-              <img src="images/portfolio-thumb-2.jpg" class="img-fluid" alt="Urban Cafe Branding" />
+            <a class="card card-custom text-decoration-none" href="projects/photography/city-street-walk/index.html">
+              <span class="chip">Photography</span>
+              <img src="images/portfolio-thumb-2.jpg" class="img-fluid" alt="City Street Walk" />
+              <div class="card-overlay"><span>View project</span></div>
               <div class="card-body text-center">
-                <div class="date-text mb-2">Brand Identity</div>
-                <h3 class="subtitle">Urban Cafe Branding</h3>
+                <h3 class="subtitle text-dark mb-0">City Street Walk</h3>
               </div>
-            </div>
+            </a>
           </div>
 
           <div class="swiper-slide">
-            <div class="card card-custom">
-              <img src="images/portfolio-thumb-3.jpg" class="img-fluid" alt="Tech Conference 2023" />
+            <a class="card card-custom text-decoration-none" href="projects/academic/sample-research/index.html">
+              <span class="chip">Academic</span>
+              <img src="images/portfolio-thumb-3.jpg" class="img-fluid" alt="Sample Research" />
+              <div class="card-overlay"><span>View project</span></div>
               <div class="card-body text-center">
-                <div class="date-text mb-2">Event Design</div>
-                <h3 class="subtitle">Tech Conference 2023</h3>
+                <h3 class="subtitle text-dark mb-0">Sample Research</h3>
               </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="card card-custom">
-              <img src="images/portfolio-thumb-4.jpg" class="img-fluid" alt="Nova Packaging Design" />
-              <div class="card-body text-center">
-                <div class="date-text mb-2">Product Design</div>
-                <h3 class="subtitle">Nova Packaging Design</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="card card-custom">
-              <img src="images/portfolio-thumb-5.jpg" class="img-fluid" alt="Elevate Web Design" />
-              <div class="card-body text-center">
-                <div class="date-text mb-2">Web Design</div>
-                <h3 class="subtitle">Elevate Web Design</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="card card-custom">
-              <img src="images/portfolio-thumb-6.jpg" class="img-fluid" alt="Zenith Mobile App" />
-              <div class="card-body text-center">
-                <div class="date-text mb-2">App Development</div>
-                <h3 class="subtitle">Zenith Mobile App</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="card card-custom">
-              <img src="images/portfolio-thumb-7.jpg" class="img-fluid" alt="Aurora Illustration Set" />
-              <div class="card-body text-center">
-                <div class="date-text mb-2">Illustration</div>
-                <h3 class="subtitle">Aurora Illustration Set</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="card card-custom">
-              <img src="images/portfolio-thumb-8.jpg" class="img-fluid" alt="Pulse Marketing Campaign" />
-              <div class="card-body text-center">
-                <div class="date-text mb-2">Marketing</div>
-                <h3 class="subtitle">Pulse Marketing Campaign</h3>
-              </div>
-            </div>
+            </a>
           </div>
 
         </div>
@@ -997,11 +957,10 @@
   </section>
 
     <div class="container">
-            Have a question, research idea, or just want to say hi? Drop me a note. I’d love to hear from you.
           </p>
         </div>
 
-              <i class="fas fa-arrow-right"></i>
+          
             </button>
           </form>
         </div>
@@ -1011,50 +970,28 @@
   
 
   <!-- Footer Section -->
-  <footer class="py-5 bg-dark-custom rounded-4 m-3 m-lg-4" data-aos="clip-bottom">
+    <footer class="site-footer bg-dark-custom rounded-4 m-3 m-lg-4" data-aos="clip-bottom">
     <div class="container">
-      <div class="row mb-5">
-        <div class="col-md-3">
-          <div class="text-light-custom content-title fw-bold" data-animate-title data-aos="fade-right" data-aos-duration="1000">Tristen</div>
-          <p class="text-light-custom mb-4">
-            Connect with me on social platforms below.
-          </p>
-          <div class="d-flex flex-wrap gap-3">
-            <a href="https://github.com/tristenb6"><i class="fab fa-github social-icon text-light-custom"></i></a>
-            <a href="#"><i class="fab fa-instagram social-icon text-light-custom"></i></a>
-            <a href="https://www.linkedin.com/in/tristenbest"><i class="fab fa-linkedin social-icon text-light-custom"></i></a>
-          </div>
+      <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between gap-3">
+        <div class="d-flex align-items-center gap-3">
+          <div class="text-light-custom content-title brand-script">TB</div>
+          <div class="text-light-custom small">Energy and climate professional</div>
         </div>
-
-        <div class="col-md-2">
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="#" class="footer-link text-yellow">Home</a></li>
-            <li class="mb-2"><a href="#" class="footer-link">Portfolio</a></li>
-          </ul>
+        <div class="text-light-custom">
+          <a href="mailto:tristenbest6@gmail.com" class="footer-email"><i class="fas fa-envelope me-2"></i>tristenbest6@gmail.com</a>
         </div>
-
-        <div class="col-md-2">
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="#" class="footer-link">Blog</a></li>
-          </ul>
-        </div>
-
-        <div class="col-md-5">
-          <p class="text-light-custom mb-4">
-            Just feel free to contact if you wanna collaborate with me, or simply have a conversation.
-          </p>
-          <p class="text-light-custom fst-italic fs-5"><a href="mailto:tristenbest6@gmail.com"
-              class="text-light-custom text-decoration-none">tristenbest6@gmail.com</a></p>
+        <div class="d-flex flex-wrap gap-3 align-items-center">
+          <a href="https://github.com/tristenb6"><i class="fab fa-github social-icon text-light-custom"></i></a>
+          <a href="#"><i class="fab fa-instagram social-icon text-light-custom"></i></a>
+          <a href="https://www.linkedin.com/in/tristenbest"><i class="fab fa-linkedin social-icon text-light-custom"></i></a>  <a href="#" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
         </div>
       </div>
-
-      <div class="border-top border-light pt-4">
-        <p class="text-light-custom text-center">
-          ©2025 Tristen Best. All rights reserved.
-        </p>
+      <div class="border-top border-light pt-3 mt-3">
+        <p class="text-light-custom text-center small mb-0">&copy; 2025 Tristen. All rights reserved.</p>
       </div>
-
-  <!-- Bootstrap JS Bundle with Popper -->
+    </div>
+  </footer>
+<!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- JQuery js -->
   <script src="js/jquery-1.11.0.min.js"></script>
@@ -1065,3 +1002,7 @@
 </body>
 
 </html>
+
+
+
+

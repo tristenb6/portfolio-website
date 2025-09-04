@@ -245,6 +245,27 @@
         }, 800);
     });
 
+    // Sticky nav shrink on scroll
+    (function stickyNav() {
+      const navs = document.querySelectorAll('.site-nav');
+      const onScroll = () => {
+        const scrolled = window.scrollY > 10;
+        navs.forEach(n => n.classList.toggle('nav-scrolled', scrolled));
+      };
+      window.addEventListener('scroll', onScroll);
+      onScroll();
+    })();
+
+    // Lazy-load images by default (except if explicitly set)
+    document.querySelectorAll('img').forEach(img => {
+      if (!img.hasAttribute('loading')) {
+        img.setAttribute('loading', 'lazy');
+      }
+      if (!img.hasAttribute('decoding')) {
+        img.setAttribute('decoding', 'async');
+      }
+    });
+
     // Animate page title letters (for elements with data-animate-title)
     (function animateTitles() {
       const nodes = document.querySelectorAll('[data-animate-title]');
@@ -280,6 +301,59 @@
         });
       });
     })();
+
+    // Rotating tag (hero micro-headline), configurable via data-attributes
+    (function rotatingTag() {
+      const el = document.querySelector('.rotating-tag');
+      if (!el) return;
+      const wordsAttr = el.getAttribute('data-rotate') || '';
+      const words = wordsAttr.split('|').map(w => w.trim()).filter(Boolean);
+      if (!words.length) return;
+      const interval = parseInt(el.getAttribute('data-rotate-interval')) || 2400;
+      const span = el.querySelector('.tag-word');
+      let i = 0;
+      // ensure initial text matches first word
+      if (span) span.textContent = words[0];
+      setInterval(() => {
+        if (!span) return;
+        span.classList.add('swap-out');
+        setTimeout(() => {
+          i = (i + 1) % words.length;
+          span.textContent = words[i];
+          span.classList.remove('swap-out');
+          span.classList.add('swap-in');
+          setTimeout(() => span.classList.remove('swap-in'), 260);
+        }, 260);
+      }, interval);
+    })();
+
+    // Trigger accent underline animation for Welcome when visible
+    (function accentWelcomeAnim() {
+      const el = document.querySelector('.accent-welcome .accent-text');
+      if (!el) return;
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              el.classList.add('animate');
+              io.disconnect();
+            }
+          });
+        }, { threshold: 0.6 });
+        io.observe(el);
+      } else {
+        // Fallback: start after a short delay
+        setTimeout(() => el.classList.add('animate'), 200);
+      }
+    })();
+
+    // Back to top smooth scroll
+    document.querySelectorAll('.back-to-top').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
   });
 
   });
