@@ -354,6 +354,49 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
+
+    // Project pages: move Back to Portfolio next to title and remove bottom one
+    (function adjustProjectBackLinks() {
+      const h1 = document.querySelector('main h1.display-5');
+      if (!h1) return;
+
+      // Remove any header back-to-portfolio anchors
+      document.querySelectorAll('header a[href$="portfolio.html"]').forEach(a => a.remove());
+
+      // Remove bottom back buttons inside main and pull controls to the right
+      document.querySelectorAll('main a.btn.btn-back[href$="portfolio.html"]').forEach(a => {
+        const sec = a.closest('section');
+        a.remove();
+        if (sec && sec.classList.contains('justify-content-between')) {
+          sec.classList.remove('justify-content-between');
+          sec.classList.add('justify-content-end');
+        }
+      });
+
+      // Wrap the title and add Back to Portfolio button on the right
+      if (!h1.closest('.d-flex')) {
+        const row = document.createElement('div');
+        row.className = 'd-flex justify-content-between align-items-center mb-2';
+        const parent = h1.parentNode;
+        parent.insertBefore(row, h1);
+        row.appendChild(h1);
+        const backBtn = document.createElement('a');
+        backBtn.className = 'btn btn-back';
+        // Works for projects/*/*/index.html depth
+        backBtn.href = '../../../portfolio.html';
+        backBtn.textContent = 'Back to Portfolio';
+        row.appendChild(backBtn);
+      } else {
+        // If already flex, ensure a back button exists
+        if (!h1.parentElement.querySelector('a.btn.btn-back')) {
+          const backBtn = document.createElement('a');
+          backBtn.className = 'btn btn-back';
+          backBtn.href = '../../../portfolio.html';
+          backBtn.textContent = 'Back to Portfolio';
+          h1.parentElement.appendChild(backBtn);
+        }
+      }
+    })();
   });
 
   });
