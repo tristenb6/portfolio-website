@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Post Title — Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .reading-progress { position: fixed; top: 0; left: 0; width: 100%; height: 4px; background: rgba(0,0,0,.08); z-index: 2000; }
+    .reading-progress .bar { height: 100%; width: 0; background: var(--secondary-color); transition: width .1s linear; }
+    .post-hero { background: var(--primary-color); border-radius: 20px; }
+    .toc { position: sticky; top: 90px; }
+    .toc a { display:block; padding: 6px 0; color: var(--text-dark); text-decoration: none; opacity: .8; }
+    .toc a.active { font-weight: 700; opacity: 1; }
+    .star-rating .fa-star { cursor: pointer; color: #d1d1d1; transition: transform .12s ease; }
+    .star-rating .fa-star.filled { color: var(--secondary-color); }
+    .callout { border:2px solid var(--text-dark); border-radius: 16px; padding: 16px 18px; background: linear-gradient(160deg, var(--light-bg), var(--light-bg-alt)); }
+    .chip { display:inline-block; border:2px solid var(--text-dark); border-radius:999px; padding:4px 10px; font-weight:700; margin-right:6px; background:#fff; }
+    .meta-dot::before { content:"•"; margin: 0 8px; opacity:.8; }
+  </style>
+</head>
+<body>
+  <div class="reading-progress"><div class="bar"></div></div>
+
+  <header class="py-3 px-3 px-lg-4">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="text-light-custom fw-bold">Tristen</div>
+      <a href="../blog.html" class="btn btn-back">Back to Blog</a>
+    </div>
+  </header>
+
+  <main class="container py-4 py-lg-5">
+    <!-- Title + Tags + Meta -->
+    <section class="post-hero p-3 p-lg-5 mb-4 text-light-custom" data-aos="fade-up">
+      <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+        <span class="chip bg-white">Review</span>
+        <span class="chip bg-white">Film</span>
+        <span class="chip bg-white">Food</span>
+      </div>
+      <h1 class="display-5 mb-2">A Fun, Interactive Post Title</h1>
+      <div class="d-flex flex-wrap align-items-center text-light-custom">
+        <span>By <strong>You</strong></span>
+        <span class="meta-dot"></span>
+        <span>Mar 2025</span>
+        <span class="meta-dot"></span>
+        <span><i class="fas fa-clock me-1"></i><span class="read-time">6</span> min read</span>
+        <span class="meta-dot"></span>
+        <div class="star-rating ms-1" aria-label="Rate this post">
+          <i class="fa-solid fa-star" data-star="1"></i>
+          <i class="fa-solid fa-star" data-star="2"></i>
+          <i class="fa-solid fa-star" data-star="3"></i>
+          <i class="fa-solid fa-star" data-star="4"></i>
+          <i class="fa-solid fa-star" data-star="5"></i>
+        </div>
+      </div>
+    </section>
+
+    <div class="row g-4">
+      <!-- TOC -->
+      <aside class="col-lg-3 d-none d-lg-block" data-aos="fade-up" data-aos-delay="50">
+        <div class="toc callout">
+          <div class="fw-bold mb-2">On this page</div>
+          <a href="#intro">Introduction</a>
+          <a href="#section1">Quick Takes</a>
+          <a href="#section2">Spoiler Box</a>
+          <a href="#section3">Tabs: Info</a>
+          <a href="#section4">Quotes & Callouts</a>
+        </div>
+      </aside>
+
+      <!-- Content -->
+      <article class="col-lg-9">
+        <section id="intro" class="mb-4" data-aos="fade-up">
+          <p class="fs-5 mb-3">Kick things off with a lively intro. Use chips above to set a vibe (movie night, food crawl, etc.). Below are interactive bits you can remix per post.</p>
+          <div class="callout"><strong>Tip:</strong> Use <em>.image-link</em> anchors to open images in a lightbox via Chocolat (already wired globally).</div>
+        </section>
+
+        <section id="section1" class="mb-4" data-aos="fade-up" data-aos-delay="50">
+          <h2 class="content-title mb-2">Quick Takes</h2>
+          <ul class="styled-bullets ps-0">
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Best scene/plate: describe your favorite moment or flavor.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Vibe check: cozy, chaotic, cinematic, nostalgic—your call.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Would you recommend? Who would love this?</li>
+          </ul>
+        </section>
+
+        <section id="section2" class="mb-4" data-aos="fade-up" data-aos-delay="100">
+          <h2 class="content-title mb-2">Spoiler Box</h2>
+          <p class="mb-2">Keep surprises optional. Toggle reveals with Bootstrap collapse.</p>
+          <a class="btn btn-custom btn-sm" data-bs-toggle="collapse" href="#spoilerBox" role="button" aria-expanded="false" aria-controls="spoilerBox">
+            <i class="fas fa-eye-slash me-1"></i> Reveal Spoilers
+          </a>
+          <div class="collapse mt-2" id="spoilerBox">
+            <div class="callout">
+              Plot twist or secret sauce goes here. Keep it fun and respectful for readers who opt in.
+            </div>
+          </div>
+        </section>
+
+        <section id="section3" class="mb-4" data-aos="fade-up" data-aos-delay="150">
+          <h2 class="content-title mb-2">Info Tabs</h2>
+          <ul class="nav nav-tabs" id="infoTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="movie-tab" data-bs-toggle="tab" data-bs-target="#movie" type="button" role="tab">Movie</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="food-tab" data-bs-toggle="tab" data-bs-target="#food" type="button" role="tab">Food</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="fun-tab" data-bs-toggle="tab" data-bs-target="#fun" type="button" role="tab">Fun Facts</button>
+            </li>
+          </ul>
+          <div class="tab-content border rounded-4 p-3 bg-white" id="infoTabsContent">
+            <div class="tab-pane fade show active" id="movie" role="tabpanel">
+              <ul class="mb-0">
+                <li>Director / Studio / Runtime</li>
+                <li>Genres / Rating</li>
+                <li>Where to watch (if relevant)</li>
+              </ul>
+            </div>
+            <div class="tab-pane fade" id="food" role="tabpanel">
+              <ul class="mb-0">
+                <li>Restaurant / Cuisine / Price range</li>
+                <li>Signature dishes</li>
+                <li>Location & vibe</li>
+              </ul>
+            </div>
+            <div class="tab-pane fade" id="fun" role="tabpanel">
+              <ul class="mb-0">
+                <li>Behind-the-scenes trivia</li>
+                <li>Easter eggs or local lore</li>
+                <li>Pairings (snacks, playlists)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="section4" class="mb-4" data-aos="fade-up" data-aos-delay="200">
+          <h2 class="content-title mb-2">Quotes & Callouts</h2>
+          <blockquote class="fst-italic fs-4 mb-3">“Add a pull quote for flavor or insight. Keep it punchy.”</blockquote>
+          <div class="callout">Use callouts to summarize verdicts, tips, or how-to steps.</div>
+        </section>
+
+        <section class="mt-4" data-aos="fade-up" data-aos-delay="250">
+          <div class="d-flex flex-wrap gap-2">
+            <span class="chip">#cozy</span>
+            <span class="chip">#weekend</span>
+            <span class="chip">#snackable</span>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/jquery-1.11.0.min.js"></script>
+  <script src="../js/plugins.js"></script>
+  <script src="../js/script.js?v=2"></script>
+  <script>
+    // Reading progress
+    (function(){
+      const bar = document.querySelector('.reading-progress .bar');
+      const onScroll = () => {
+        const h = document.documentElement;
+        const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+        bar.style.width = (scrolled * 100) + '%';
+      };
+      document.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // Read time estimate (roughly 200 wpm)
+    (function(){
+      const main = document.querySelector('main');
+      if(!main) return;
+      const text = main.innerText || '';
+      const words = text.trim().split(/\s+/).length;
+      const mins = Math.max(1, Math.round(words / 200));
+      const el = document.querySelector('.read-time');
+      if(el) el.textContent = mins;
+    })();
+
+    // TOC highlight
+    (function(){
+      const links = Array.from(document.querySelectorAll('.toc a'));
+      if(!links.length) return;
+      const targets = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(en => {
+          if(en.isIntersecting){
+            const id = '#' + en.target.id;
+            links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === id));
+          }
+        })
+      }, { threshold: 0.4 });
+      targets.forEach(t => io.observe(t));
+    })();
+
+    // Star rating (local only)
+    (function(){
+      const stars = document.querySelectorAll('.star-rating .fa-star');
+      if(!stars.length) return;
+      const key = 'post-rating:' + (document.title || 'post');
+      const apply = n => stars.forEach(s => s.classList.toggle('filled', Number(s.dataset.star) <= n));
+      let rating = Number(localStorage.getItem(key) || 0);
+      apply(rating);
+      stars.forEach(s => {
+        s.addEventListener('click', () => { rating = Number(s.dataset.star); localStorage.setItem(key, rating); apply(rating); });
+        s.addEventListener('mouseenter', () => apply(Number(s.dataset.star)));
+        s.addEventListener('mouseleave', () => apply(rating));
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1528,3 +1528,6 @@ footer.bg-dark-custom .fst-italic.fs-5 { font-size: 1rem !important; }
 @media (min-width: 992px) {
   .pub-title { font-size: 24px; }
 }
+/* Portfolio grid: hide subtitle when a thumbnail is present */
+.project-card.photography.with-thumb .subtitle { display: none; }
+.project-card.photography img + .subtitle { display: none; }
