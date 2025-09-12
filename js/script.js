@@ -26,11 +26,34 @@
         filter: filterValue
       });
 
+      // Toggle portfolio photography slider based on current filter
+      (function updatePhotoSliderDisplay(currentFilter){
+        const slider = document.getElementById('photoSlider');
+        if (!slider) return;
+        slider.style.display = (currentFilter === '.photography') ? '' : 'none';
+      })(filterValue);
+
       // bind filter button click
       $('.button-group').on('click', 'a', function (e) {
         e.preventDefault();
         filterValue = $(this).attr('data-filter');
         $grid.isotope({ filter: filterValue });
+        // update slider visibility on filter change
+        const slider = document.getElementById('photoSlider');
+        if (slider) {
+          const show = (filterValue === '.photography');
+          slider.style.display = show ? '' : 'none';
+          if (show) {
+            if (!window.portfolioPhotoSwiper && typeof window.initPortfolioPhotoSwiper === 'function') {
+              window.initPortfolioPhotoSwiper();
+            }
+          } else {
+            if (window.portfolioPhotoSwiper && typeof window.portfolioPhotoSwiper.destroy === 'function') {
+              window.portfolioPhotoSwiper.destroy(true, true);
+              window.portfolioPhotoSwiper = null;
+            }
+          }
+        }
       });
 
       // change is-checked class on buttons
@@ -115,37 +138,7 @@
       },
     });
 
-    // Initialize Articles Swiper
-    const articlesSwiper = new Swiper('.articlesSwiper', {
-      slidesPerView: 3,
-      spaceBetween: 20,
-      loop: true,
-      autoplay: {
-        delay: 4500,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      breakpoints: {
-        300: {
-          slidesPerView: 1,
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        1200: {
-          slidesPerView: 3,
-          spaceBetween: 30,
-        },
-      },
-    });
+    // Articles Swiper removed (section no longer present)
 
     // Initialize Logos Swiper
     const logosSwiper = new Swiper('.logosSwiper', {
@@ -372,3 +365,48 @@
   });
 
 })(jQuery);
+    // Initialize Portfolio Photography Swiper (portfolioPhotoSwiper)
+    const photoSwiperEl = document.querySelector('.portfolioPhotoSwiper');
+    if (photoSwiperEl) {
+      const portfolioPhotoSwiper = new Swiper('.portfolioPhotoSwiper', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        loop: true,
+        loopedSlides: 5,
+        loopAdditionalSlides: 5,
+        watchSlidesProgress: true,
+        preloadImages: true,
+        updateOnImagesReady: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          300: { slidesPerView: 1, spaceBetween: 12 },
+          768: { slidesPerView: 2, spaceBetween: 16 },
+          1200: { slidesPerView: 3, spaceBetween: 20 },
+        },
+      });
+
+      // Ensure Chocolat is bound to slider images (in case init ran before)
+      if (typeof Chocolat === 'function') {
+        Chocolat(document.querySelectorAll('#photoSlider .image-link'), {
+          imageSize: 'contain',
+          loop: true,
+      });
+      window.portfolioPhotoSwiper = portfolioPhotoSwiper;
+      // extra safety: update after init to establish loop clones
+      if (typeof portfolioPhotoSwiper.update === 'function') {
+        portfolioPhotoSwiper.update();
+        if (typeof portfolioPhotoSwiper.loopFix === 'function') portfolioPhotoSwiper.loopFix();
+      }
+    }
+    }
