@@ -427,9 +427,28 @@ window.restorePortfolioView = function() {
   if (!grid.length) return; // not on portfolio page
   const $buttonGroup = $('.button-group');
   const $checked = $buttonGroup.find('.is-checked');
-  const filterValue = $checked.attr('data-filter') || '*';
+  const filterValue = ($checked.attr('data-filter') || '.photography');
+
+  // Safety: clear any inline styles Isotope may have left behind
+  try {
+    document.querySelectorAll('.grid .portfolio-item').forEach(el => {
+      ['position','left','top','transform','opacity','display'].forEach(p => el.style.removeProperty(p));
+    });
+    const gridEl = document.querySelector('.grid');
+    if (gridEl) ['height'].forEach(p => gridEl.style.removeProperty(p));
+  } catch (e) {}
+
+  // Robust re-init: destroy, reload, filter, layout
   try { grid.isotope('destroy'); } catch (e) {}
-  grid.isotope({ itemSelector: '.portfolio-item', filter: filterValue });
+  try {
+    grid.isotope({ itemSelector: '.portfolio-item', filter: filterValue });
+    grid.isotope('reloadItems');
+    grid.isotope({ filter: filterValue });
+    grid.isotope('layout');
+  } catch (e) {
+    // Fallback: show everything if Isotope is unavailable
+    document.querySelectorAll('.grid .portfolio-item').forEach(el => { el.style.display = ''; el.hidden = false; });
+  }
   // Sync slider visibility + swiper
   const slider = document.getElementById('photoSlider');
   if (slider) {
