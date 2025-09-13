@@ -219,99 +219,89 @@
         <div class="row justify-content-center ">
           <div class="col-lg-6 mt-5 pt-5" data-aos="fade-up">
             <div class="section-header text-center">
-              <span class="text-muted text-uppercase">
+              <span class="section-kicker" data-aos="fade-up">
                 Recent Works
               </span>
-              <h2 class="display-1">
+              <h2 class="display-1 section-hero-title">
                 Portfolio
               </h2>
-              <p>
+              <p class="section-lead" data-aos="fade-up" data-aos-delay="120">
                  Use the tabs to explore my work. Switch between Photography and Academic.
               </p>
             </div>
           </div>
         </div>
 
-        <div id="filters" class="button-group d-flex flex-wrap gap-4 justify-content-center py-5" data-aos="fade-up">
+        <div id="filters" class="button-group d-flex flex-wrap gap-2 justify-content-center py-5" data-aos="fade-up">
           <a href="#" class="btn btn-custom text-decoration-none text-uppercase is-checked" data-filter=".photography">Photography</a>
+          <span class="tab-switch-hint" aria-hidden="true" title="Switch between tabs"><i class="fas fa-arrows-left-right"></i></span>
           <a href="#" class="btn btn-custom text-decoration-none text-uppercase" data-filter=".academic">Academic</a>
         </div>
 
-        <!-- Top photos label moved above slider -->
-        <div class="text-center mb-2 date-text">My Top 5 Photos</div>
-
         <!-- Photography slider (visible only for Photography filter) -->
         <div id="photoSlider" class="mb-4" data-aos="fade-up">
+          <div class="text-center mb-2">
+            <span class="micro-accent" data-aos="fade-up">My Favorite Photos</span>
+          </div>
           <div class="swiper portfolioPhotoSwiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide position-relative">
-                <span class="slide-badge">1</span>
-                <a href="images/projects/film-roll-portraits/001.jpg" class="image-link d-block" title="Blue Ridge Brewin">
-                  <img src="images/projects/film-roll-portraits/001.jpg" class="img-fluid rounded-4" alt="Top photo 1" loading="lazy">
+                <a href="images/projects/washington-dc/019.jpg" class="image-link d-block" title="Blue Ridge Brewin">
+                  <img src="images/projects/washington-dc/019.jpg" class="img-fluid rounded-4" alt="Top photo 1" loading="lazy">
                 </a>
               </div>
               <div class="swiper-slide position-relative">
-                <span class="slide-badge">2</span>
                 <a href="images/projects/film-roll-portraits/002.jpg" class="image-link d-block" title="Blue Ridge Brewin">
                   <img src="images/projects/film-roll-portraits/002.jpg" class="img-fluid rounded-4" alt="Top photo 2" loading="lazy">
                 </a>
               </div>
               <div class="swiper-slide position-relative">
-                <span class="slide-badge">3</span>
-                <a href="images/projects/film-roll-portraits/003.jpg" class="image-link d-block" title="Blue Ridge Brewin">
-                  <img src="images/projects/film-roll-portraits/003.jpg" class="img-fluid rounded-4" alt="Top photo 3" loading="lazy">
+                <a href="images/projects/city-street-walk/005.jpg" class="image-link d-block" title="Blue Ridge Brewin">
+                  <img src="images/projects/city-street-walk/005.jpg" class="img-fluid rounded-4" alt="Top photo 3" loading="lazy">
                 </a>
               </div>
               <div class="swiper-slide position-relative">
-                <span class="slide-badge">4</span>
-                <a href="images/projects/film-roll-portraits/004.jpg" class="image-link d-block" title="Blue Ridge Brewin">
-                  <img src="images/projects/film-roll-portraits/004.jpg" class="img-fluid rounded-4" alt="Top photo 4" loading="lazy">
+                <a href="images/projects/washington-dc/014.jpg" class="image-link d-block" title="Blue Ridge Brewin">
+                  <img src="images/projects/washington-dc/014.jpg" class="img-fluid rounded-4" alt="Top photo 4" loading="lazy">
                 </a>
               </div>
               <div class="swiper-slide position-relative">
-                <span class="slide-badge">5</span>
-                <a href="images/projects/film-roll-portraits/005.jpg" class="image-link d-block" title="Blue Ridge Brewin">
-                  <img src="images/projects/film-roll-portraits/005.jpg" class="img-fluid rounded-4" alt="Top photo 5" loading="lazy">
+                <a href="images/projects/city-street-walk/008.jpg" class="image-link d-block" title="Blue Ridge Brewin">
+                  <img src="images/projects/city-street-walk/008.jpg" class="img-fluid rounded-4" alt="Top photo 5" loading="lazy">
                 </a>
               </div>
-              <!-- Duplicated slides to ensure seamless loop -->
+              <!-- Duplicated slides to ensure seamless loop (match top 5) -->
               <div class="swiper-slide position-relative">
-                <span class="slide-badge">1</span>
-                <a href="images/projects/film-roll-portraits/001.jpg" class="image-link d-block" title="Blue Ridge Brewin">
-                  <img src="images/projects/film-roll-portraits/001.jpg" class="img-fluid rounded-4" alt="Top photo 1 (dup)" loading="lazy">
+                <a href="images/projects/washington-dc/019.jpg" class="image-link d-block" title="Blue Ridge Brewin">
+                  <img src="images/projects/washington-dc/019.jpg" class="img-fluid rounded-4" alt="Top photo 1 (dup)" loading="lazy">
                 </a>
               </div>
               <div class="swiper-slide position-relative">
-                <span class="slide-badge">2</span>
                 <a href="images/projects/film-roll-portraits/002.jpg" class="image-link d-block" title="Blue Ridge Brewin">
                   <img src="images/projects/film-roll-portraits/002.jpg" class="img-fluid rounded-4" alt="Top photo 2 (dup)" loading="lazy">
                 </a>
               </div>
               <div class="swiper-slide position-relative">
-                <span class="slide-badge">3</span>
-                <a href="images/projects/film-roll-portraits/003.jpg" class="image-link d-block" title="Blue Ridge Brewin">
-                  <img src="images/projects/film-roll-portraits/003.jpg" class="img-fluid rounded-4" alt="Top photo 3 (dup)" loading="lazy">
+                <a href="images/projects/city-street-walk/005.jpg" class="image-link d-block" title="Blue Ridge Brewin">
+                  <img src="images/projects/city-street-walk/005.jpg" class="img-fluid rounded-4" alt="Top photo 3 (dup)" loading="lazy">
                 </a>
               </div>
               <div class="swiper-slide position-relative">
-                <span class="slide-badge">4</span>
-                <a href="images/projects/film-roll-portraits/004.jpg" class="image-link d-block" title="Blue Ridge Brewin">
-                  <img src="images/projects/film-roll-portraits/004.jpg" class="img-fluid rounded-4" alt="Top photo 4 (dup)" loading="lazy">
+                <a href="images/projects/washington-dc/014.jpg" class="image-link d-block" title="Blue Ridge Brewin">
+                  <img src="images/projects/washington-dc/014.jpg" class="img-fluid rounded-4" alt="Top photo 4 (dup)" loading="lazy">
                 </a>
               </div>
               <div class="swiper-slide position-relative">
-                <span class="slide-badge">5</span>
-                <a href="images/projects/film-roll-portraits/005.jpg" class="image-link d-block" title="Blue Ridge Brewin">
-                  <img src="images/projects/film-roll-portraits/005.jpg" class="img-fluid rounded-4" alt="Top photo 5 (dup)" loading="lazy">
+                <a href="images/projects/city-street-walk/008.jpg" class="image-link d-block" title="Blue Ridge Brewin">
+                  <img src="images/projects/city-street-walk/008.jpg" class="img-fluid rounded-4" alt="Top photo 5 (dup)" loading="lazy">
                 </a>
               </div>
             </div>
-            <div class="swiper-pagination"></div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
           </div>
           <div class="text-center mt-4">
-            <div class="h5 date-text">Photography Project Sets</div>
+            <span class="micro-accent alt" data-aos="fade-up" data-aos-delay="100">Photography Project Sets</span>
             <p class="text-muted small mb-0">Add a short description of your project sets here.</p>
           </div>
         </div>

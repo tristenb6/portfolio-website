@@ -15,10 +15,6 @@
   <header class="py-3 px-3 px-lg-4">
     <div class="container d-flex justify-content-between align-items-center">
       <div class="text-light-custom fw-bold">Tristen</div>
-      <a href="#" class="btn btn-outline-light btn-sm d-flex align-items-center gap-2" target="_blank" rel="noopener">
-        <i class="fas fa-music"></i>
-        <span>Featured Track</span>
-      </a>
     </div>
   </header>
 
@@ -31,9 +27,34 @@
       <p class="text-secondary mb-3">Photography • 2025 • San Fransisco, CA</p>
       <div class="row g-3 text-light-custom">
         <div class="col-md-6">
-          <p class="mb-1"><strong>Role:</strong> Photographer</p>
           <p class="mb-1"><strong>Camera:</strong> Minolta Freedom 70EX </p>
           <p class="mb-1"><strong>Film:</strong> Kodak Gold 200 </p>
+          <div class="featured-track">
+            <span class="track-label">Featured Tracks</span>
+            <div class="track-list">
+              <div class="track-card">
+                <div class="icon"><i class="fas fa-music"></i></div>
+                <div class="track-text">
+                  <div class="track-title">Track Title</div>
+                  <div class="track-artist">Artist Name</div>
+                </div>
+              </div>
+              <div class="track-card">
+                <div class="icon"><i class="fas fa-music"></i></div>
+                <div class="track-text">
+                  <div class="track-title">Track Title</div>
+                  <div class="track-artist">Artist Name</div>
+                </div>
+              </div>
+              <div class="track-card">
+                <div class="icon"><i class="fas fa-music"></i></div>
+                <div class="track-text">
+                  <div class="track-title">Track Title</div>
+                  <div class="track-artist">Artist Name</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-md-6">
           <p class="mb-1"><strong>Summary:</strong> A candid street collection exploring light, movement, and everyday narratives.</p>
@@ -42,7 +63,8 @@
     </section>
 
     <section class="mb-5" data-aos="fade-up">
-      <div class="row g-3">
+      <!-- Use a constrained gallery grid to normalize mixed aspect ratios -->
+      <div class="row g-3 photo-gallery">
         <!-- Point these to images you drop into images/projects/city-street-walk/ -->
         <div class="col-6 col-lg-4">
           <a href="../../../images/projects/city-street-walk/001.jpg" class="image-link d-block"><img src="../../../images/projects/city-street-walk/001.jpg" class="img-fluid rounded-4" alt="Street 1"></a>

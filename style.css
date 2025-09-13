@@ -301,6 +301,136 @@ body {
     color: var(--text-muted);
 }
 
+/* Micro accent label with animated underline */
+.micro-accent {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  background-image: linear-gradient(var(--secondary-color), var(--secondary-color));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 6px;
+  padding-bottom: 6px;
+  will-change: background-size;
+  animation: underlineGrowThick 1000ms ease-out 200ms forwards;
+}
+.micro-accent.alt {
+  background-image: linear-gradient(var(--primary-subtle-color), var(--primary-subtle-color));
+}
+@keyframes underlineGrowThick { to { background-size: 100% 6px; } }
+
+/* Optional hover emphasis */
+.micro-accent:hover { filter: saturate(1.1) contrast(1.05); }
+
+/* Section hero titles (e.g., Portfolio, My Blog) */
+.section-hero-title {
+  position: relative;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  padding-bottom: 18px; /* reserve space for underline */
+}
+.section-hero-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: min(72%, 520px);
+  height: 6px;
+  background: var(--secondary-color);
+  border-radius: 999px;
+  opacity: .95;
+  animation: sectionHeroUnderline 1400ms ease-out 260ms forwards;
+}
+@keyframes sectionHeroUnderline { to { opacity: 1; transform: translateX(-50%) scaleX(1); } }
+
+/* Filter tabs switch hint */
+.tab-switch-hint {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-dark);
+  opacity: .6;
+  font-size: 24px;
+  line-height: 1;
+}
+.tab-switch-hint i { margin: 0 2px; }
+@keyframes nudgeX { 0%{transform:translateX(0)}25%{transform:translateX(3px)}50%{transform:translateX(-3px)}75%{transform:translateX(2px)}100%{transform:translateX(0)} }
+.tab-switch-hint { animation: nudgeX 1800ms ease-in-out infinite; }
+
+/* Subtle reveal for restoring portfolio view */
+.portfolio-fade-reveal { animation: portfolioReveal 260ms ease-out; }
+@keyframes portfolioReveal { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Depth/bevel card for first blog post */
+.depth-card {
+  position: relative;
+  border: 2px solid var(--text-dark);
+  border-radius: 18px;
+  background: linear-gradient(160deg, var(--light-bg), var(--light-bg-alt));
+  padding: 18px;
+  box-shadow:
+    0 8px 0 0 var(--text-dark), /* hard drop for bevel */
+    0 18px 34px rgba(0,0,0,.18); /* soft depth */
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.depth-card::before {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(255,255,255,.22), rgba(255,255,255,0) 42%, rgba(0,0,0,.06) 100%);
+  pointer-events: none;
+}
+.depth-card:hover, .depth-card:focus-within {
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 0 0 var(--text-dark),
+    0 24px 40px rgba(0,0,0,.22);
+}
+.depth-card .post-image img {
+  border: 2px solid var(--text-dark);
+  border-radius: 14px;
+  box-shadow:
+    0 6px 0 0 var(--text-dark),
+    0 16px 26px rgba(0,0,0,.12);
+}
+.depth-card .post-title a { color: inherit; }
+.depth-card .post-title a:hover { text-decoration: underline; }
+
+/* Section kicker (small label above big title) */
+.section-kicker {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  background: linear-gradient(160deg, var(--light-bg), var(--light-bg-alt));
+  border: 2px solid var(--text-dark);
+  border-radius: 999px;
+  padding: 6px 12px;
+  box-shadow: 0 2px 0 0 var(--text-dark);
+}
+/* Ensure no underline animation is applied */
+.section-kicker.micro-accent { background-image: none !important; animation: none !important; padding-bottom: 0 !important; }
+
+/* Section lead (subtitle paragraph under big title) */
+.section-lead {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  color: var(--text-dark);
+  opacity: .9;
+  margin-top: 8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .btn-custom {
     background-color: var(--secondary-color);
     border: 2px solid var(--text-dark);
@@ -1547,7 +1677,88 @@ footer.bg-dark-custom .fst-italic.fs-5 { font-size: 1rem !important; }
 }
 
 /* Portfolio photo slider: stacked look */
-.portfolioPhotoSwiper { overflow: visible; padding-bottom: 16px; }
+.portfolioPhotoSwiper { overflow: visible; padding-bottom: 0; }
 .portfolioPhotoSwiper .swiper-wrapper { transition-timing-function: linear !important; }
 .portfolioPhotoSwiper .swiper-slide { background: #fff; border: 2px solid var(--text-dark); border-radius: 16px; box-shadow: 0 8px 18px rgba(0,0,0,.08); }
 .portfolioPhotoSwiper .swiper-slide img { display: block; border-radius: 14px; }
+
+/* Golden City project: normalize mixed aspect ratios for a tidy grid */
+.golden-gallery .image-link img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  border: 2px solid var(--text-dark);
+  border-radius: 14px;
+}
+@media (min-width: 768px) {
+  .golden-gallery .image-link img { height: 280px; }
+}
+
+/* Generic photo gallery normalization for all photography projects */
+.photo-gallery .image-link img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  border: 2px solid var(--text-dark);
+  border-radius: 14px;
+}
+@media (min-width: 768px) {
+  .photo-gallery .image-link img { height: 280px; }
+}
+@media (min-width: 1200px) {
+  .photo-gallery .image-link img { height: 300px; }
+}
+
+/* Featured track simple styling (title + artist) — subtle to blend with dark header */
+.featured-track { margin-top: 6px; }
+.featured-track .track-label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: .14em;
+  opacity: .7;
+}
+.featured-track .track-card {
+  margin-top: 4px;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  background: transparent;
+  padding: 6px 8px;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: none;
+  color: inherit; /* inherit light text in header */
+  width: 100%;
+}
+.featured-track .track-card .icon {
+  width: 20px; height: 20px;
+  display: grid; place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  opacity: .85;
+}
+.featured-track .track-title { font-weight: 700; font-size: 14px; line-height: 1.1; }
+.featured-track .track-artist { font-size: 12px; opacity: .75; line-height: 1.1; }
+
+/* Track list grid for multiple featured tracks */
+.featured-track .track-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+@media (min-width: 576px) {
+  .featured-track .track-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 992px) {
+  .featured-track .track-list { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1200px) {
+  .golden-gallery .image-link img { height: 300px; }
+}
+/* Hide right arrow for portfolio slider */
+#photoSlider .swiper-button-next { display: none !important; }
