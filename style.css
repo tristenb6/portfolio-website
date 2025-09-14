@@ -366,6 +366,21 @@ body {
 .portfolio-fade-reveal { animation: portfolioReveal 260ms ease-out; }
 @keyframes portfolioReveal { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
+/* Progressive image reveal for lazy-loaded imgs */
+img.lazy-fade {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+img.lazy-fade.lazy-fade-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional background lazy helper */
+[data-bg] { background-size: cover; background-position: center; }
+[data-bg].bg-loaded { transition: opacity .35s ease; opacity: 1; }
+
 /* Depth/bevel card for first blog post */
 .depth-card {
   position: relative;
@@ -404,16 +419,17 @@ body {
 /* Section kicker (small label above big title) */
 .section-kicker {
   display: inline-block;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--text-dark);
-  background: linear-gradient(160deg, var(--light-bg), var(--light-bg-alt));
-  border: 2px solid var(--text-dark);
-  border-radius: 999px;
-  padding: 6px 12px;
-  box-shadow: 0 2px 0 0 var(--text-dark);
+  opacity: .7;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 /* Ensure no underline animation is applied */
 .section-kicker.micro-accent { background-image: none !important; animation: none !important; padding-bottom: 0 !important; }
@@ -604,6 +620,68 @@ body {
     overflow-y: auto;
     clip-path: circle(0% at 100% 0);
     transition: clip-path 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+/* Hero CTA buttons (homepage About/Resume) */
+.btn-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(180deg, var(--secondary-color), #d38d61);
+  color: var(--text-dark);
+  border: 2px solid var(--text-dark);
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  box-shadow: 0 6px 0 0 var(--text-dark), 0 12px 24px rgba(0,0,0,.12);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn-cta:hover, .btn-cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 0 var(--text-dark), 0 20px 36px rgba(0,0,0,.18);
+  background: linear-gradient(180deg, #efb78f, var(--secondary-color));
+}
+.btn-cta i { transition: transform .18s ease; }
+.btn-cta:hover i { transform: translateX(2px); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent;
+  color: var(--text-dark);
+  border: 2px solid var(--text-dark);
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  box-shadow: 0 4px 0 0 var(--text-dark);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+}
+.btn-ghost:hover, .btn-ghost:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 0 var(--text-dark);
+  background: var(--light-bg);
+}
+.btn-ghost i { transition: transform .18s ease; }
+.btn-ghost:hover i { transform: translateY(-1px); }
+
+/* Portfolio filter pills with depth */
+#filters .btn-custom {
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  border: 2px solid var(--text-dark);
+  box-shadow: 0 3px 0 0 var(--text-dark);
+  background: transparent;
+  color: var(--text-dark);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+}
+#filters .btn-custom.is-checked {
+  background: linear-gradient(180deg, var(--secondary-color), #d38d61);
+  color: var(--text-dark);
+}
+#filters .btn-custom:hover, #filters .btn-custom:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 0 var(--text-dark);
 }
 
 .fullscreen-menu-overlay.active {
@@ -1237,6 +1315,7 @@ body {
     text-decoration: none;
     overflow: hidden;
     background: linear-gradient(160deg, var(--light-bg), var(--light-bg-alt));
+    box-shadow: 0 6px 0 0 var(--text-dark), 0 16px 26px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.35);
     transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 .project-card::before {
@@ -1259,7 +1338,7 @@ body {
 .project-card:hover,
 .project-card:focus-visible {
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0,0,0,.12);
+    box-shadow: 0 8px 0 0 var(--text-dark), 0 24px 40px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.35);
     border-color: var(--text-dark);
 }
 .project-card:hover::before { opacity: .9; transform: rotate(12deg) scale(1.05); }
@@ -1285,6 +1364,13 @@ body {
     margin-top: 64px;
     font-weight: 800;
     font-size: 22px;
+}
+/* Tighter spacing for photography cards (reduce gap between chip and title) */
+.project-card.photography .title { margin-top: 40px; }
+.project-card.academic .title { margin-top: 40px; }
+@media (max-width: 576px) {
+  .project-card.photography .title { margin-top: 34px; }
+  .project-card.academic .title { margin-top: 34px; }
 }
 .project-card .subtitle {
     position: relative;

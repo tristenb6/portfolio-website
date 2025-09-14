@@ -1,4 +1,4 @@
-Project images live under this folder.
+﻿Project images live under this folder.
 
 Suggested structure:
 
@@ -7,12 +7,13 @@ Suggested structure:
 
 Examples created for you:
 
-- images/projects/film-roll-portraits/
+- images/projects/blue-ridge-brewin/
 - images/projects/city-street-walk/
 
 Tips:
 
 - Use consistent filenames like 001.jpg, 002.jpg, ... to keep order.
-- Keep images reasonably sized (e.g., 1600–2400px on long edge) for web.
+- Keep images reasonably sized (e.g., 1600â€“2400px on long edge) for web.
 - You can mix jpg and png; update the project HTML if needed.
+
 

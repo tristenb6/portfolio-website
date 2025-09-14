@@ -17,8 +17,14 @@
       // $('.grid').imagesLoaded( function() {
       // images have loaded
       var $buttonGroup = $('.button-group');
+      var lastFilter = sessionStorage.getItem('portfolioFilter');
       var $checked = $buttonGroup.find('.is-checked');
-      var filterValue = $checked.attr('data-filter');
+      var filterValue = lastFilter || ($checked.attr('data-filter') || '.photography');
+
+      // ensure the correct button reflects the active filter
+      $buttonGroup.find('.is-checked').removeClass('is-checked');
+      var $btnMatch = $buttonGroup.find('[data-filter="' + filterValue + '"]');
+      if ($btnMatch.length) { $btnMatch.addClass('is-checked'); }
 
       var $grid = $('.grid').isotope({
         itemSelector: '.portfolio-item',
@@ -42,6 +48,7 @@
         e.preventDefault();
         filterValue = $(this).attr('data-filter');
         $grid.isotope({ filter: filterValue });
+        try { sessionStorage.setItem('portfolioFilter', filterValue); } catch (e) {}
         // update slider visibility on filter change
         const slider = document.getElementById('photoSlider');
         if (slider) {
@@ -227,7 +234,52 @@
       if (!img.hasAttribute('decoding')) {
         img.setAttribute('decoding', 'async');
       }
+      // Add a subtle fade-in by default; opt-out with class="no-fade"
+      if (!img.classList.contains('no-fade')) img.classList.add('lazy-fade');
     });
+
+    // Progressive reveal for images when they load/enter viewport
+    (function fadeInLazyImages(){
+      const reveal = (img) => img.classList.add('lazy-fade-show');
+      const onLoad = (e) => reveal(e.target);
+      const io = ('IntersectionObserver' in window)
+        ? new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                io.unobserve(img);
+                if (img.complete) reveal(img); else img.addEventListener('load', onLoad, { once: true });
+              }
+            });
+          }, { rootMargin: '200px 0px' })
+        : null;
+      document.querySelectorAll('img.lazy-fade').forEach(img => {
+        if (io) io.observe(img); else if (img.complete) reveal(img); else img.addEventListener('load', onLoad, { once: true });
+      });
+    })();
+
+    // Lazy background helper: set background-image from data-bg when visible
+    (function lazyBackgrounds(){
+      if (!('IntersectionObserver' in window)) return;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            io.unobserve(el);
+            const url = el.getAttribute('data-bg');
+            if (url) {
+              el.style.backgroundImage = 'url("' + url.replace(/"/g, '\\"') + '")';
+              el.classList.add('bg-loaded');
+              el.removeAttribute('data-bg');
+            }
+          }
+        });
+      }, { rootMargin: '240px 0px' });
+      document.querySelectorAll('[data-bg]').forEach(el => {
+        el.style.opacity = '0.01';
+        io.observe(el);
+      });
+    })();
 
     // Animate page title letters (for elements with data-animate-title)
     (function animateTitles() {
@@ -427,7 +479,9 @@ window.restorePortfolioView = function() {
   if (!grid.length) return; // not on portfolio page
   const $buttonGroup = $('.button-group');
   const $checked = $buttonGroup.find('.is-checked');
-  const filterValue = ($checked.attr('data-filter') || '.photography');
+  let storedFilter = null;
+  try { storedFilter = sessionStorage.getItem('portfolioFilter'); } catch (e) {}
+  const filterValue = storedFilter || ($checked.attr('data-filter') || '.photography');
 
   // Safety: clear any inline styles Isotope may have left behind
   try {
@@ -441,9 +495,16 @@ window.restorePortfolioView = function() {
   // Robust re-init: destroy, reload, filter, layout
   try { grid.isotope('destroy'); } catch (e) {}
   try {
+    // sync button state
+    const $buttonGroup = $('.button-group');
+    $buttonGroup.find('.is-checked').removeClass('is-checked');
+    const $btnMatch = $buttonGroup.find('[data-filter="' + filterValue + '"]');
+    if ($btnMatch.length) $btnMatch.addClass('is-checked');
+
     grid.isotope({ itemSelector: '.portfolio-item', filter: filterValue });
     grid.isotope('reloadItems');
     grid.isotope({ filter: filterValue });
+    grid.isotope('arrange');
     grid.isotope('layout');
   } catch (e) {
     // Fallback: show everything if Isotope is unavailable
@@ -461,6 +522,19 @@ window.restorePortfolioView = function() {
       }
     }
   }
+  // If AOS left elements invisible (opacity:0), re-trigger
+  try {
+    if (window.AOS && typeof window.AOS.refreshHard === 'function') {
+      window.AOS.refreshHard();
+    }
+  } catch (e) {}
+  try {
+    document.querySelectorAll('[data-aos]').forEach(el => {
+      // Force visible state
+      el.classList.add('aos-animate');
+      el.style.removeProperty('opacity');
+    });
+  } catch (e) {}
   // Tiny reveal to smooth layout jump
   const addReveal = (el) => {
     if (!el) return;
