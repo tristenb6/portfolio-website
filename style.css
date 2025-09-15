@@ -672,6 +672,12 @@ img.lazy-fade.lazy-fade-show {
 .btn-ghost i { transition: transform .18s ease; }
 .btn-ghost:hover i { transform: translateY(-1px); }
 
+/* About meta line (clean, no pills) */
+.about-meta { display: inline-flex; align-items: center; gap: 8px; }
+.about-meta .pin { color: var(--secondary-color); opacity: .95; }
+.about-meta .label { font-size: 11px; text-transform: uppercase; letter-spacing: .16em; color: var(--secondary-color); opacity: .95; }
+.about-meta .value { font-weight: 700; font-size: 16px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-dark); opacity: .9; }
+
 /* Portfolio filter pills with depth */
 #filters .btn-custom {
   border-radius: 999px;
