@@ -2003,30 +2003,42 @@ img.lazy-fade.lazy-fade-show {
     z-index: 2;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 6px;
+    width: 100%;
 }
 .project-card.photography .chip {
     position: relative;
-    top: auto;
-    left: auto;
-    background: rgba(255,255,255,0.16);
-    color: var(--text-light);
-    border: 1px solid rgba(255,255,255,0.38);
-    padding: 4px 12px;
+    top: 0;
+    left: 0;
 }
-.project-card.photography .badge-year {
+
+.project-card.photography .chip,
+.academic-feature-card .chip {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.28);
+    justify-content: center;
+    background: rgba(233,169,125,0.18);
     color: var(--text-light);
+    border: 1px solid rgba(233,169,125,0.5);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
+}
+.project-card.photography .badge-year {
+    display: inline-block;
+    background: rgba(233,169,125,0.18);
+    color: var(--text-light);
+    border: 1px solid rgba(233,169,125,0.5);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
 }
 .project-card.photography .title {
     margin-top: 16px;
@@ -2605,6 +2617,14 @@ footer.bg-dark-custom .fst-italic.fs-5 { font-size: 1rem !important; }
 .site-nav .btn.btn-custom.active { background: var(--primary-color) !important; color: #fff; }
 .site-nav .btn.btn-custom.active:hover,
 .site-nav .btn.btn-custom.active:focus-visible { background: var(--primary-color) !important; color: #fff; }
+
+
+
+
+
+
+
+
 
 
 
