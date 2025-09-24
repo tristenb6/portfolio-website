@@ -3,26 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Post Title — Blog</title>
+  <title>Post Title &mdash; Blog Template</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&family=Great+Vibes&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="../style.css" />
-  <style>
-    .reading-progress { position: fixed; top: 0; left: 0; width: 100%; height: 4px; background: rgba(0,0,0,.08); z-index: 2000; }
-    .reading-progress .bar { height: 100%; width: 0; background: var(--secondary-color); transition: width .1s linear; }
-    .post-hero { background: var(--primary-color); border-radius: 20px; }
-    .toc { position: sticky; top: 90px; }
-    .toc a { display:block; padding: 6px 0; color: var(--text-dark); text-decoration: none; opacity: .8; }
-    .toc a.active { font-weight: 700; opacity: 1; }
-    .star-rating .fa-star { cursor: pointer; color: #d1d1d1; transition: transform .12s ease; }
-    .star-rating .fa-star.filled { color: var(--secondary-color); }
-    .callout { border:2px solid var(--text-dark); border-radius: 16px; padding: 16px 18px; background: linear-gradient(160deg, var(--light-bg), var(--light-bg-alt)); }
-    .chip { display:inline-block; border:2px solid var(--text-dark); border-radius:999px; padding:4px 10px; font-weight:700; margin-right:6px; background:#fff; }
-    .meta-dot::before { content:"•"; margin: 0 8px; opacity:.8; }
-  </style>
+  <meta name="description" content="Use this refreshed template to craft immersive long-form posts that match the portfolio aesthetic." />
 </head>
 <body>
   <div class="reading-progress"><div class="bar"></div></div>
@@ -35,185 +23,187 @@
   </header>
 
   <main class="container py-4 py-lg-5">
-    <!-- Title + Tags + Meta -->
-    <section class="post-hero p-3 p-lg-5 mb-4 text-light-custom" data-aos="fade-up">
-      <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-        <span class="chip bg-white">Review</span>
-        <span class="chip bg-white">Film</span>
-        <span class="chip bg-white">Food</span>
-      </div>
-      <h1 class="display-5 mb-2">A Fun, Interactive Post Title</h1>
-      <div class="d-flex flex-wrap align-items-center text-light-custom">
-        <span>By <strong>You</strong></span>
-        <span class="meta-dot"></span>
-        <span>Mar 2025</span>
-        <span class="meta-dot"></span>
-        <span><i class="fas fa-clock me-1"></i><span class="read-time">6</span> min read</span>
-        <span class="meta-dot"></span>
-        <div class="star-rating ms-1" aria-label="Rate this post">
-          <i class="fa-solid fa-star" data-star="1"></i>
-          <i class="fa-solid fa-star" data-star="2"></i>
-          <i class="fa-solid fa-star" data-star="3"></i>
-          <i class="fa-solid fa-star" data-star="4"></i>
-          <i class="fa-solid fa-star" data-star="5"></i>
+    <article class="post-frame" data-aos="fade-up">
+      <section class="post-hero">
+        <span class="hero-tag">Post Category</span>
+        <h1 class="post-hero-title">Your Article Title Lives Here in All Its Glory</h1>
+        <p class="hero-lead">Summarize the story in a sentence or two. Think about why this post matters&mdash;what arc the reader can expect, and how it connects to the portfolio’s energy, climate, or creative work.</p>
+        <div class="hero-meta-grid">
+          <div class="hero-meta-card">
+            <span class="meta-label">Published</span>
+            <span class="meta-value">Month 00, 2025</span>
+          </div>
+          <div class="hero-meta-card">
+            <span class="meta-label">Location / Context</span>
+            <span class="meta-value">Chapel Hill, NC</span>
+          </div>
+          <div class="hero-meta-card">
+            <span class="meta-label">Read Time</span>
+            <span class="meta-value"><span class="js-read-time">6</span> min</span>
+          </div>
+          <div class="hero-meta-card">
+            <span class="meta-label">Focus</span>
+            <span class="meta-value">Highlight the core theme</span>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <div class="row g-4">
-      <!-- TOC -->
-      <aside class="col-lg-3 d-none d-lg-block" data-aos="fade-up" data-aos-delay="50">
-        <div class="toc callout">
-          <div class="fw-bold mb-2">On this page</div>
-          <a href="#intro">Introduction</a>
-          <a href="#section1">Quick Takes</a>
-          <a href="#section2">Spoiler Box</a>
-          <a href="#section3">Tabs: Info</a>
-          <a href="#section4">Quotes & Callouts</a>
+      <section class="post-grid">
+        <aside class="post-sidebar" data-aos="fade-up" data-aos-delay="100">
+          <div class="sidebar-block">
+            <h2 class="sidebar-title">Quick Guide</h2>
+            <ol class="quick-nav">
+              <li><a href="#intro" class="active">Introduction <i class="fas fa-arrow-right"></i></a></li>
+              <li><a href="#chapter-one">Section One <i class="fas fa-arrow-right"></i></a></li>
+              <li><a href="#chapter-two">Section Two <i class="fas fa-arrow-right"></i></a></li>
+              <li><a href="#chapter-three">Wrap Up <i class="fas fa-arrow-right"></i></a></li>
+            </ol>
+          </div>
+
+          <div class="sidebar-block">
+            <details class="post-detail" open>
+              <summary><i class="fas fa-code"></i> Build Stack</summary>
+              <div class="detail-content">
+                <ul>
+                  <li>HTML · CSS · Bootstrap</li>
+                  <li>AOS animation hooks</li>
+                  <li>Accessible color system</li>
+                </ul>
+              </div>
+            </details>
+            <details class="post-detail">
+              <summary><i class="fas fa-compass"></i> Suggested Links</summary>
+              <div class="detail-content">
+                <p>Drop in relevant projects, data sources, or collaborators to keep readers exploring.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="sidebar-block">
+            <p class="sidebar-note">Swap any of these sidebar pieces for metrics, quotes, or a quick TL;DR. It’s designed to stay sticky on desktop so navigation is always within reach.</p>
+          </div>
+        </aside>
+
+        <div class="post-body" data-aos="fade-up" data-aos-delay="150">
+          <section id="intro" class="story-section" data-section>
+            <h2>Introduction Eyebrow</h2>
+            <p>Open with a compelling hook. Set the stage for the story while weaving in how it connects to your portfolio themes&mdash;energy, climate, data storytelling, or creative experimentation.</p>
+            <div class="story-card-grid">
+              <article class="story-card">
+                <span class="card-icon"><i class="fas fa-lightbulb"></i></span>
+                <strong>Key Insight</strong>
+                <p>Lead with the headline takeaway you want readers to remember.</p>
+              </article>
+              <article class="story-card">
+                <span class="card-icon"><i class="fas fa-heart"></i></span>
+                <strong>Why It Matters</strong>
+                <p>Tie your work back to people, communities, or impact.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="chapter-one" class="story-section" data-section>
+            <h2>Section One Title</h2>
+            <p>Drop in narrative paragraphs, data points, or reflections. Mix in bullet lists, inline highlights, or images to break up the cadence.</p>
+            <details class="post-detail">
+              <summary><i class="fas fa-chart-line"></i> Optional Deep Dive</summary>
+              <div class="detail-content">
+                <p>When you have context the casual reader might skip, hide it here. Everyone wins.</p>
+              </div>
+            </details>
+          </section>
+
+          <section id="chapter-two" class="story-section" data-section>
+            <h2>Section Two Title</h2>
+            <p>Continue the narrative. Think about layering in quotes, analogies, or comparisons to keep the story feeling conversational yet analytical.</p>
+            <blockquote class="pull-quote">“Strong quotes deserve space. Use this component for emphasis or a voice from the field.”</blockquote>
+            <div class="story-timeline">
+              <div class="timeline-item">
+                <span class="timeline-dot"></span>
+                <h3>Moment One</h3>
+                <p>Describe the beat. What happened, who was involved, and why it mattered.</p>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-dot"></span>
+                <h3>Moment Two</h3>
+                <p>Keep layering details. Timelines work well for milestones, research sprints, or event recaps.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="chapter-three" class="story-section" data-section>
+            <h2>Closing Notes</h2>
+            <p>Wrap with gratitude, next steps, or a call to action. Consider how readers can stay in the loop&mdash;what’s launching next, how to collaborate, or where to follow along.</p>
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-value">2025</div>
+                <div class="metric-label">Year</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">∞</div>
+                <div class="metric-label">Ideas Brewing</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="story-section">
+            <div class="post-cta-panel">
+              <h3 class="cta-title">Invite readers to dig deeper.</h3>
+              <p>Suggest a project, dataset, or photography series that complements the post. Or drop a note about how to contact you.</p>
+              <div class="cta-actions">
+                <a href="../portfolio.html" class="btn btn-cta">View portfolio <i class="fas fa-arrow-right"></i></a>
+                <a href="mailto:tristenbest6@gmail.com" class="btn-ghost-dark"><i class="fas fa-paper-plane"></i>Say hello</a>
+              </div>
+            </div>
+          </section>
         </div>
-      </aside>
-
-      <!-- Content -->
-      <article class="col-lg-9">
-        <section id="intro" class="mb-4" data-aos="fade-up">
-          <p class="fs-5 mb-3">Kick things off with a lively intro. Use chips above to set a vibe (movie night, food crawl, etc.). Below are interactive bits you can remix per post.</p>
-          <div class="callout"><strong>Tip:</strong> Use <em>.image-link</em> anchors to open images in a lightbox via Chocolat (already wired globally).</div>
-        </section>
-
-        <section id="section1" class="mb-4" data-aos="fade-up" data-aos-delay="50">
-          <h2 class="content-title mb-2">Quick Takes</h2>
-          <ul class="styled-bullets ps-0">
-            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Best scene/plate: describe your favorite moment or flavor.</li>
-            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Vibe check: cozy, chaotic, cinematic, nostalgic—your call.</li>
-            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Would you recommend? Who would love this?</li>
-          </ul>
-        </section>
-
-        <section id="section2" class="mb-4" data-aos="fade-up" data-aos-delay="100">
-          <h2 class="content-title mb-2">Spoiler Box</h2>
-          <p class="mb-2">Keep surprises optional. Toggle reveals with Bootstrap collapse.</p>
-          <a class="btn btn-custom btn-sm" data-bs-toggle="collapse" href="#spoilerBox" role="button" aria-expanded="false" aria-controls="spoilerBox">
-            <i class="fas fa-eye-slash me-1"></i> Reveal Spoilers
-          </a>
-          <div class="collapse mt-2" id="spoilerBox">
-            <div class="callout">
-              Plot twist or secret sauce goes here. Keep it fun and respectful for readers who opt in.
-            </div>
-          </div>
-        </section>
-
-        <section id="section3" class="mb-4" data-aos="fade-up" data-aos-delay="150">
-          <h2 class="content-title mb-2">Info Tabs</h2>
-          <ul class="nav nav-tabs" id="infoTabs" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="movie-tab" data-bs-toggle="tab" data-bs-target="#movie" type="button" role="tab">Movie</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="food-tab" data-bs-toggle="tab" data-bs-target="#food" type="button" role="tab">Food</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="fun-tab" data-bs-toggle="tab" data-bs-target="#fun" type="button" role="tab">Fun Facts</button>
-            </li>
-          </ul>
-          <div class="tab-content border rounded-4 p-3 bg-white" id="infoTabsContent">
-            <div class="tab-pane fade show active" id="movie" role="tabpanel">
-              <ul class="mb-0">
-                <li>Director / Studio / Runtime</li>
-                <li>Genres / Rating</li>
-                <li>Where to watch (if relevant)</li>
-              </ul>
-            </div>
-            <div class="tab-pane fade" id="food" role="tabpanel">
-              <ul class="mb-0">
-                <li>Restaurant / Cuisine / Price range</li>
-                <li>Signature dishes</li>
-                <li>Location & vibe</li>
-              </ul>
-            </div>
-            <div class="tab-pane fade" id="fun" role="tabpanel">
-              <ul class="mb-0">
-                <li>Behind-the-scenes trivia</li>
-                <li>Easter eggs or local lore</li>
-                <li>Pairings (snacks, playlists)</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="section4" class="mb-4" data-aos="fade-up" data-aos-delay="200">
-          <h2 class="content-title mb-2">Quotes & Callouts</h2>
-          <blockquote class="fst-italic fs-4 mb-3">“Add a pull quote for flavor or insight. Keep it punchy.”</blockquote>
-          <div class="callout">Use callouts to summarize verdicts, tips, or how-to steps.</div>
-        </section>
-
-        <section class="mt-4" data-aos="fade-up" data-aos-delay="250">
-          <div class="d-flex flex-wrap gap-2">
-            <span class="chip">#cozy</span>
-            <span class="chip">#weekend</span>
-            <span class="chip">#snackable</span>
-          </div>
-        </section>
-      </article>
-    </div>
+      </section>
+    </article>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../js/jquery-1.11.0.min.js"></script>
   <script src="../js/plugins.js"></script>
-  <script src="../js/script.js?v=2"></script>
+  <script src="../js/script.js?v=3"></script>
   <script>
-    // Reading progress
     (function(){
       const bar = document.querySelector('.reading-progress .bar');
+      if(!bar) return;
       const onScroll = () => {
-        const h = document.documentElement;
-        const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
-        bar.style.width = (scrolled * 100) + '%';
+        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+        const progress = scrollTop / (scrollHeight - clientHeight);
+        bar.style.width = Math.min(100, Math.max(0, progress * 100)) + '%';
       };
       document.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
     })();
 
-    // Read time estimate (roughly 200 wpm)
     (function(){
-      const main = document.querySelector('main');
-      if(!main) return;
-      const text = main.innerText || '';
-      const words = text.trim().split(/\s+/).length;
-      const mins = Math.max(1, Math.round(words / 200));
-      const el = document.querySelector('.read-time');
-      if(el) el.textContent = mins;
+      const article = document.querySelector('.post-body');
+      const target = document.querySelector('.js-read-time');
+      if(!article || !target) return;
+      const words = (article.innerText || '').trim().split(/\s+/).length;
+      const minutes = Math.max(1, Math.round(words / 200));
+      target.textContent = minutes;
     })();
 
-    // TOC highlight
     (function(){
-      const links = Array.from(document.querySelectorAll('.toc a'));
+      const links = Array.from(document.querySelectorAll('.quick-nav a'));
       if(!links.length) return;
-      const targets = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+      const sections = links
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+      const activate = id => {
+        links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + id));
+      };
       const io = new IntersectionObserver(entries => {
-        entries.forEach(en => {
-          if(en.isIntersecting){
-            const id = '#' + en.target.id;
-            links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === id));
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            activate(entry.target.id);
           }
-        })
+        });
       }, { threshold: 0.4 });
-      targets.forEach(t => io.observe(t));
-    })();
-
-    // Star rating (local only)
-    (function(){
-      const stars = document.querySelectorAll('.star-rating .fa-star');
-      if(!stars.length) return;
-      const key = 'post-rating:' + (document.title || 'post');
-      const apply = n => stars.forEach(s => s.classList.toggle('filled', Number(s.dataset.star) <= n));
-      let rating = Number(localStorage.getItem(key) || 0);
-      apply(rating);
-      stars.forEach(s => {
-        s.addEventListener('click', () => { rating = Number(s.dataset.star); localStorage.setItem(key, rating); apply(rating); });
-        s.addEventListener('mouseenter', () => apply(Number(s.dataset.star)));
-        s.addEventListener('mouseleave', () => apply(rating));
-      });
+      sections.forEach(section => io.observe(section));
     })();
   </script>
 </body>

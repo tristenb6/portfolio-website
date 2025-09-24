@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Title &mdash; Photography Template V2</title>
+
+  <!-- Core site assets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&family=Great+Vibes&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../../../style.css" />
+
+  <!-- Template-specific styling -->
+  <style>
+    :root {
+      --hero-glow: rgba(233,169,125,0.45);
+      --hero-deep: rgba(8,36,43,0.9);
+      --hero-dim: rgba(12,45,42,0.85);
+    }
+
+    body {
+      background: linear-gradient(160deg, #070f11 0%, #111b1d 28%, #1a2b30 60%, #0b1416 100%);
+      color: var(--text-light);
+    }
+
+    .photo-v2-hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      padding: clamp(32px, 6vw, 64px);
+      margin: clamp(16px, 4vw, 40px) auto;
+      background: radial-gradient(circle at 12% 18%, var(--hero-glow), transparent 60%),
+                  radial-gradient(circle at 90% 12%, rgba(249,195,44,0.28), transparent 65%),
+                  linear-gradient(135deg, var(--hero-deep) 0%, var(--hero-dim) 55%, rgba(233,169,125,0.2) 100%);
+      box-shadow: 0 32px 80px rgba(5, 15, 18, 0.6);
+    }
+
+    .hero-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: clamp(24px, 4vw, 48px);
+    }
+
+    .hero-nav .brand {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 2.2vw, 2.4rem);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .hero-core {
+      display: grid;
+      gap: clamp(28px, 4vw, 48px);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-copy h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.4rem);
+      line-height: 1.05;
+      margin-bottom: 18px;
+      text-shadow: 0 20px 40px rgba(0,0,0,0.45);
+    }
+
+    .hero-copy p.lead {
+      font-size: 1.12rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.82);
+      max-width: 540px;
+      margin-bottom: 24px;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .hero-meta-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .meta-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 18px;
+      background: rgba(233,169,125,0.28);
+      border: 2px solid rgba(255,255,255,0.35);
+      color: var(--text-light);
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .meta-captured {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .hero-floating-media {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      z-index: 1;
+      perspective: 1200px;
+    }
+
+    .hero-preview-tile {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.26);
+      box-shadow: 0 24px 40px rgba(0,0,0,0.35);
+      transform-origin: center;
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    .hero-preview-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.08);
+    }
+
+    .hero-preview-tile:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 32px 54px rgba(0,0,0,0.45);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      left: 50%;
+      bottom: 12px;
+      transform: translateX(-50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+
+    .scroll-hint i { animation: bounce 1.6s ease-in-out infinite; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* Story sections */
+    .photo-story {
+      margin: clamp(32px, 5vw, 72px) auto;
+      display: grid;
+      gap: clamp(28px, 4vw, 44px);
+    }
+
+    .letter-spacing-3 {
+      letter-spacing: .18em;
+    }
+
+    .story-intro {
+      max-width: 740px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .story-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .story-card {
+      background: rgba(255,255,255,0.07);
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.16);
+      padding: 22px;
+      display: grid;
+      gap: 12px;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.12);
+    }
+
+    .story-card .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(233,169,125,0.2);
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(233,169,125,0.45);
+      color: var(--secondary-color);
+      font-size: 1.1rem;
+    }
+
+    /* Gallery grid */
+    .masonry-gallery {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .masonry-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.18);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.35);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .masonry-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 48px rgba(0,0,0,0.45);
+    }
+
+    .masonry-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .masonry-item.small { grid-row: span 1; }
+    .masonry-item.tall { grid-row: span 2; }
+
+    /* Footer navigation */
+    .project-nav {
+      margin: clamp(32px, 6vw, 72px) auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .project-nav .note {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.68);
+    }
+
+    .btn-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: 2px solid var(--text-dark);
+      background: var(--secondary-color);
+      color: var(--text-dark);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 6px 0 0 var(--text-dark), 0 18px 32px rgba(0,0,0,0.24);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .btn-arrow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 0 var(--text-dark), 0 24px 40px rgba(0,0,0,0.28);
+    }
+
+    @media (max-width: 767px) {
+      .hero-nav { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .hero-core { grid-template-columns: 1fr; }
+      .hero-floating-media { order: -1; }
+      .hero-meta-inline { flex-direction: column; align-items: flex-start; gap: 6px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="photo-v2-hero" data-aos="fade-up">
+    <div class="hero-nav">
+      <div class="brand">TB Photography</div>
+      <a href="../../../portfolio.html" class="btn-arrow"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    </div>
+
+    <div class="hero-core">
+      <div class="hero-copy">
+        <h1>Project Title</h1>
+        <div class="hero-meta-inline">
+          <span class="meta-location"><i class="fas fa-location-dot"></i> Location highlight</span>
+          <span class="meta-captured"><i class="fas fa-calendar"></i> Month YYYY</span>
+        </div>
+        <p class="lead">Open with a concise headline. What did you chase, why does it matter, and what should viewers look for as they scroll?</p>
+
+        <div class="hero-chips">
+          <span class="hero-chip"><i class="fas fa-camera"></i> Camera body</span>
+          <span class="hero-chip"><i class="fas fa-film"></i> Film or settings</span>
+        </div>
+      </div>
+
+      <div class="hero-floating-media" id="floatingMedia">
+        <div class="hero-preview-tile" data-tilt="-4">
+          <img src="../../../images/projects/example/001.jpg" alt="Preview still" />
+        </div>
+        <div class="hero-preview-tile" data-tilt="3">
+          <img src="../../../images/projects/example/002.jpg" alt="Preview still" />
+        </div>
+        <div class="hero-preview-tile" data-tilt="-6">
+          <img src="../../../images/projects/example/003.jpg" alt="Preview still" />
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint"><i class="fas fa-angle-down"></i> Scroll to explore</div>
+  </header>
+
+  <main class="container pb-5">
+    <section class="photo-story" data-aos="fade-up" data-aos-delay="50">
+      <p class="story-intro">Use this paragraph to set the stage&mdash;call out the moment, the neighborhood, the weather, or the reason this shoot exists. Two or three sentences are enough.</p>
+
+      <div class="story-cards">
+        <article class="story-card">
+          <div class="icon"><i class="fas fa-shoe-prints"></i></div>
+          <h3>On the Move</h3>
+          <p>Outline how you explored the space. Mention the transitions you made, the textures that stood out, or the rhythm of the shoot.</p>
+        </article>
+        <article class="story-card">
+          <div class="icon"><i class="fas fa-music"></i></div>
+          <h3>Soundtrack</h3>
+          <p>Drop in the tracks or ambient noise that framed the day. A quick Spotify reference keeps things grounded.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="photo-story" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="h3 text-uppercase letter-spacing-3">Gallery Highlights</h2>
+      <div class="masonry-gallery">
+        <div class="masonry-item tall">
+          <a href="../../../images/projects/example/001.jpg" class="image-link"><img src="../../../images/projects/example/001.jpg" alt="Highlight 1" /></a>
+        </div>
+        <div class="masonry-item">
+          <a href="../../../images/projects/example/002.jpg" class="image-link"><img src="../../../images/projects/example/002.jpg" alt="Highlight 2" /></a>
+        </div>
+        <div class="masonry-item">
+          <a href="../../../images/projects/example/003.jpg" class="image-link"><img src="../../../images/projects/example/003.jpg" alt="Highlight 3" /></a>
+        </div>
+        <div class="masonry-item tall">
+          <a href="../../../images/projects/example/004.jpg" class="image-link"><img src="../../../images/projects/example/004.jpg" alt="Highlight 4" /></a>
+        </div>
+        <div class="masonry-item">
+          <a href="../../../images/projects/example/005.jpg" class="image-link"><img src="../../../images/projects/example/005.jpg" alt="Highlight 5" /></a>
+        </div>
+        <div class="masonry-item">
+          <a href="../../../images/projects/example/006.jpg" class="image-link"><img src="../../../images/projects/example/006.jpg" alt="Highlight 6" /></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="photo-story" data-aos="fade-up" data-aos-delay="150">
+      <h2 class="h3 text-uppercase letter-spacing-3">Behind the Frame</h2>
+      <div class="story-cards">
+        <article class="story-card">
+          <div class="icon"><i class="fas fa-person-hiking"></i></div>
+          <h3>Field Notes</h3>
+          <p>Swap in bullet points or paragraphs detailing unexpected moments, challenges, or serendipity.</p>
+        </article>
+        <article class="story-card">
+          <div class="icon"><i class="fas fa-flask"></i></div>
+          <h3>Experiment</h3>
+          <p>Call out the settings you tweaked or film stocks you tested. Readers love practical details they can try.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="project-nav" data-aos="fade-up" data-aos-delay="200">
+      <p class="note">Replace the links below to point to adjacent photography projects.</p>
+      <div class="d-flex flex-wrap gap-3">
+        <a href="#" class="btn-arrow disabled" aria-disabled="true"><i class="fas fa-arrow-left"></i> Previous</a>
+        <a href="#" class="btn-arrow">Next project <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../js/jquery-1.11.0.min.js"></script>
+  <script src="../../../js/plugins.js"></script>
+  <script src="../../../js/script.js?v=3"></script>
+  <script>
+    // Subtle parallax on hero image stack (desktop only)
+    (function() {
+      const media = document.getElementById('floatingMedia');
+      if (!media) return;
+      const tiles = Array.from(media.querySelectorAll('.hero-preview-tile'));
+      const apply = (x, y) => {
+        tiles.forEach((tile, idx) => {
+          const depth = (idx + 1) * 4;
+          const base = Number(tile.dataset.tilt || 0);
+          tile.style.transform = `translate3d(${x / depth}px, ${y / depth}px, 0) rotate(${base}deg)`;
+        });
+      };
+      const reset = () => tiles.forEach(tile => {
+        const base = Number(tile.dataset.tilt || 0);
+        tile.style.transform = `translate3d(0,0,0) rotate(${base}deg)`;
+      });
+      reset();
+      if (window.matchMedia('(pointer: fine)').matches) {
+        media.addEventListener('mousemove', (ev) => {
+          const rect = media.getBoundingClientRect();
+          const offsetX = ev.clientX - (rect.left + rect.width / 2);
+          const offsetY = ev.clientY - (rect.top + rect.height / 2);
+          apply(offsetX * 0.2, offsetY * 0.15);
+        }, { passive: true });
+        media.addEventListener('mouseleave', reset);
+      }
+    })();
+  </script>
+</body>
+</html>
