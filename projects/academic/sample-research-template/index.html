@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sample Research — Academic Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../../../style.css" />
+</head>
+<body>
+  <header class="py-3 px-3 px-lg-4">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="text-light-custom fw-bold">Tristen</div>
+      <a href="../../../portfolio.html" class="btn btn-back">Back to Portfolio</a>
+    </div>
+  </header>
+
+  <main class="container py-4 py-lg-5">
+    <!-- Title + Meta -->
+    <section class="bg-dark-custom rounded-4 p-3 p-lg-5 mb-4 text-light-custom" data-aos="fade-up">
+      <h1 class="display-5 mb-2">Sample Research Project</h1>
+      <p class="text-secondary mb-3">Academic • 2025 • Policy Analysis</p>
+
+      <div class="d-flex flex-wrap gap-2" aria-label="Project metadata">
+        <span class="badge-custom">Method: DiD</span>
+        <span class="badge-custom">Design: Quasi-Experimental</span>
+        <span class="badge-custom">Domain: Energy & Climate</span>
+        <span class="badge-custom">Data: Panel (2018–2024)</span>
+      </div>
+    </section>
+
+    <!-- Abstract + Summary -->
+    <section class="bg-light-alt rounded-4 p-3 p-lg-5 mb-4" data-aos="clip-bottom" data-aos-duration="800">
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <h2 class="content-title mb-2">Abstract</h2>
+          <p class="mb-2">This mock study estimates policy impacts on local outcomes using a transparent design, emphasizing reproducibility and clarity for applied audiences.</p>
+          <p class="mb-0">We combine administrative and survey data with a difference-in-differences estimator and robustness checks (event-study, placebo tests) to assess internal validity and mechanism plausibility.</p>
+        </div>
+        <div class="col-lg-5">
+          <h2 class="content-title mb-2">Executive Summary</h2>
+          <ul class="styled-bullets ps-0">
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Policy associated with a 3–5% change in the main outcome.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Effects concentrated among disadvantaged tracts; heterogeneity aligned with exposure.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Results robust to alternative timing, specifications, and controls.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methods / Design -->
+    <section class="rounded-4 p-3 p-lg-5 mb-4 bg-light-alt" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="content-title mb-3">Methods & Design</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="p-3 border rounded-4 h-100 bg-white">
+            <h3 class="subtitle mb-2">Identification</h3>
+            <ul class="styled-bullets ps-0 mb-0">
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Two-way fixed-effects DiD with staggered adoption.</li>
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Event-study to diagnose pre-trends and dynamic effects.</li>
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Placebo timing and leave-one-out sensitivity.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-3 border rounded-4 h-100 bg-white">
+            <h3 class="subtitle mb-2">Data</h3>
+            <ul class="styled-bullets ps-0 mb-0">
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Annual panel at county / tract level, 2018–2024.</li>
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Administrative outcomes merged to survey covariates.</li>
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Codebook and variable lineage documented for replication.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Findings / Callouts -->
+    <section class="rounded-4 p-3 p-lg-5 mb-4 bg-light-alt" data-aos="fade-up" data-aos-delay="150">
+      <h2 class="content-title mb-3">Key Findings</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="edu-card h-100">
+            <div class="edu-meta"><i class="fas fa-chart-line"></i><span>Effect Size</span></div>
+            <h3 class="edu-title mb-1">+4.2% (avg.)</h3>
+            <p class="mb-0">Consistent across alt specs; strongest in high-exposure areas.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="edu-card h-100">
+            <div class="edu-meta"><i class="fas fa-shield-check"></i><span>Robustness</span></div>
+            <h3 class="edu-title mb-1">Pre-trends flat</h3>
+            <p class="mb-0">No significant anticipatory effects; timing falsifications pass.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="edu-card h-100">
+            <div class="edu-meta"><i class="fas fa-users"></i><span>Equity</span></div>
+            <h3 class="edu-title mb-1">Targeted gains</h3>
+            <p class="mb-0">Larger impacts for disadvantaged tracts and frontline workers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Replication & Artifacts -->
+    <section class="rounded-4 p-3 p-lg-5 mb-4 bg-light-alt" data-aos="fade-up" data-aos-delay="200">
+      <h2 class="content-title mb-3">Artifacts</h2>
+      <div class="d-flex flex-wrap gap-2">
+        <span class="badge-custom">.do / .R scripts</span>
+        <span class="badge-custom">Codebook</span>
+        <span class="badge-custom">Event-study spec</span>
+        <span class="badge-custom">Balance diagnostics</span>
+        <span class="badge-custom">ReadMe</span>
+      </div>
+      <p class="mt-3 mb-0">This mockup intentionally contains no images. Replace these badges with links or files when ready.</p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../js/jquery-1.11.0.min.js"></script>
+  <script src="../../../js/plugins.js"></script>
+  <script src="../../../js/script.js?v=2"></script>
+</body>
+</html>

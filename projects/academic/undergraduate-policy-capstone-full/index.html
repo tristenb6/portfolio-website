@@ -1,0 +1,605 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Future of Coastal NC Wetlands | Academic</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../../../style.css" />
+  <style>
+    .hero-capstone {
+      position: relative;
+      background: linear-gradient(145deg, rgba(8, 36, 43, 0.96) 0%, rgba(12, 28, 22, 0.98) 55%, rgba(6, 18, 16, 1) 100%);
+      border: 2px solid rgba(117, 196, 183, 0.25);
+      box-shadow: 0 28px 60px rgba(3, 12, 10, 0.4);
+      overflow: hidden;
+    }
+    .hero-capstone::after {
+      content: "";
+      position: absolute;
+      inset: 20% -18% -32% 48%;
+      background: radial-gradient(65% 85% at 26% 38%, rgba(117,196,183,0.32), transparent 70%);
+      opacity: 0.8;
+      transform: rotate(-6deg);
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-back-link {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      z-index: 3;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 34px;
+      border-radius: 999px;
+      background: rgba(6, 26, 24, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+      margin-bottom: 16px;
+      min-width: 520px;
+    }
+    .hero-badge img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+    .hero-badge span {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+    .btn-theme {
+      background-color: #76c4b7;
+      border: 2px solid var(--text-dark);
+      color: var(--text-dark);
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 12px 28px;
+      box-shadow: 0 12px 24px rgba(118, 196, 183, 0.32);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+    }
+    .btn-theme.btn-sm {
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      box-shadow: 0 8px 18px rgba(118, 196, 183, 0.24);
+    }
+    .btn-theme:hover {
+      background-color: #4dab9b;
+      color: var(--text-light);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.28);
+    }
+    .hero-primary {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-weight: 600;
+      color: var(--text-light);
+      letter-spacing: 0.01em;
+    }
+    .hero-primary i { color: #76c4b7; }
+    .hero-primary.hero-partner { margin-top: 10px; }
+    .hero-stat-card {
+      border-radius: 20px;
+      background: rgba(7, 28, 25, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+    .hero-stat-card .stat-value {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1;
+      color: #76c4b7;
+    }
+    .hero-stat-card hr {
+      border-color: rgba(255, 255, 255, 0.12);
+      margin: 1.2rem 0;
+    }
+    .hero-stat-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+    .hero-stat-grid > div {
+      flex: 1 1 45%;
+      background: rgba(5, 21, 19, 0.6);
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+    .hero-stat-grid > div small { display: block; margin-top: 6px; color: rgba(255,255,255,0.7); }
+    .framework-callout {
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(118,196,183,0.24), rgba(31,68,60,0.4));
+      border: 1px solid rgba(118,196,183,0.4);
+      padding: 18px;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+    }
+    .framework-callout i {
+      font-size: 1.8rem;
+      color: #76c4b7;
+    }
+    .hero-meta .meta-card {
+      background: rgba(9, 30, 27, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      color: var(--text-light);
+      backdrop-filter: blur(6px);
+    }
+    .hero-meta .meta-card i {
+      font-size: 1.6rem;
+      color: #76c4b7;
+    }
+    .hero-meta .meta-card span {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .quick-nav { display: flex; flex-wrap: wrap; gap: 10px; }
+    .quick-nav .nav-link {
+      color: #fefefe;
+      border-radius: 999px;
+      border: 1px solid rgba(118, 196, 183, 0.55);
+      padding: 10px 26px;
+      background: rgba(12, 45, 42, 0.68);
+      box-shadow: 0 14px 30px rgba(6, 22, 20, 0.35);
+      backdrop-filter: blur(12px);
+      transition: all 0.2s ease;
+    }
+    .quick-nav .nav-link:hover, .quick-nav .nav-link:focus {
+      background: linear-gradient(135deg, #e9a97d, #76c4b7);
+      color: var(--text-dark);
+      border-color: rgba(233, 169, 125, 0.8);
+      box-shadow: 0 22px 48px rgba(233, 169, 125, 0.35);
+    }
+    .quick-nav .nav-link.active {
+      background: linear-gradient(135deg, #e9a97d, #76c4b7);
+      color: var(--text-dark);
+      border-color: rgba(233, 169, 125, 0.9);
+      box-shadow: 0 24px 52px rgba(233, 169, 125, 0.4);
+    }
+.insight-deck {
+      display: grid;
+      gap: 16px;
+    }
+    @media (min-width: 992px) {
+      .insight-deck {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .insight-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(33,68,60,0.12);
+      height: 100%;
+    }
+    .recommendation-card {
+      background: rgba(6, 28, 24, 0.85);
+      border-radius: 18px;
+      padding: 24px;
+      color: var(--text-light);
+      border: 1px solid rgba(118, 196, 183, 0.35);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.2);
+      height: 100%;
+    }
+    .recommendation-card .badge {
+      background: rgba(118,196,183,0.25);
+      color: #76c4b7;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+    .policy-grid .policy-card {
+      background: linear-gradient(135deg, rgba(118, 196, 183, 0.14), rgba(18, 61, 55, 0.18));
+      border: 1px solid rgba(18, 61, 55, 0.32);
+      border-radius: 18px;
+      padding: 22px;
+      height: 100%;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    .policy-grid .policy-card i { color: #76c4b7; font-size: 1.5rem; }
+    .artifact-strip {
+      background: linear-gradient(135deg, rgba(18,61,55,0.93), rgba(6,18,16,0.96));
+      border-radius: 22px;
+      padding: 32px;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+      color: var(--text-light);
+    }
+    .artifact-strip .badge-custom {
+      background: rgba(255, 255, 255, 0.12) !important;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: var(--text-light);
+    }
+    @media (max-width: 991.98px) {
+      .hero-capstone { border-width: 1px; }
+      .hero-meta .meta-card { flex-direction: column; }
+      .hero-badge { min-width: auto; width: 100%; justify-content: flex-start; }
+      .insight-deck { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gradient-card,
+      .insight-card,
+      .recommendation-card,
+      .quick-nav .nav-link {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="py-3 px-3 px-lg-4">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="text-light-custom fw-bold">Tristen</div>
+    </div>
+  </header>
+
+  <main class="container py-4 py-lg-5">
+    <section class="hero-capstone rounded-4 p-4 p-lg-5 mb-4 text-light-custom" data-aos="fade-up">
+      <div class="hero-content">
+        <a href="../../../portfolio.html" class="btn btn-theme btn-sm hero-back-link"><i class="fas fa-arrow-left me-2"></i>Back to Portfolio</a>
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-8">
+            <div class="hero-badge">
+              <img src="../../../images/Old_Well_mark.png" alt="UNC Old Well logo">
+              <span>UNC Undergraduate Public Policy Capstone</span>
+            </div>
+            <h1 class="display-4 mt-2 mb-3 pe-lg-4">Safeguarding North Carolina's Coastal Wetlands for Equitable Climate Resilience</h1>
+            <p class="lead text-light-custom mb-4">A cross disciplinary capstone that translates 25 years of data, policy shifts, and stakeholder signals into a pragmatic playbook for protecting Carteret County’s wetlands, water quality, and coastal livelihoods.</p>
+            <div class="hero-primary"><i class="fas fa-user-graduate"></i> Lead Researcher: Tristen Best, B.A. Public Policy (Energy & Environment)</div>
+            <div class="hero-primary hero-partner"><i class="fas fa-handshake"></i> Partner: Coastal Carolina Riverwatch & UNC Public Policy Capstone Studio</div>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <a class="btn btn-theme" href="../undergraduate-policy-capstone/The%20Future%20of%20Coastal%20NC%20Wetlands%20Final%20Report.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf me-2"></i>Final Report (PDF)</a>
+              <a class="btn btn-theme" href="../undergraduate-policy-capstone/PLCY%20698%20Capstone%20Poster%20.png" target="_blank" rel="noopener"><i class="fas fa-image me-2"></i>Research Poster</a>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="hero-stat-card">
+              <div class="stat-value">25</div>
+              <p class="mb-2">Years of land cover, permitting, and water-quality data reviewed to understand coastal change.</p>
+              <hr />
+              <div class="hero-stat-grid">
+                <div>
+                  <div class="fw-bold text-secondary display-6">5</div>
+                  <small>Complementary analyses spanning geomatics, econometrics, and policy benchmarking.</small>
+                </div>
+                <div>
+                  <div class="fw-bold text-secondary display-6">3</div>
+                  <small>Priority recommendations to modernize wetland stewardship and local resilience planning.</small>
+                </div>
+              </div>
+              <div class="framework-callout mt-2">
+                <i class="fas fa-water"></i>
+                <div>
+                  <div class="fw-bold text-light-custom">Integrated Resilience Framework</div>
+                  <p class="mb-0 small">Aligns ecological science, legal mandates, and community advocacy to keep wetlands working for coastal communities.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hero-meta row g-3 mb-4" data-aos="fade-up" data-aos-delay="80">
+      <div class="col-lg-4">
+        <div class="meta-card h-100">
+          <i class="fas fa-clipboard-list"></i>
+          <div>
+            <span>Mandate</span>
+            <p class="mb-0">Equip Coastal Carolina Riverwatch with persuasive evidence and actionable policy options after state rollback of wetland protections.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="meta-card h-100">
+          <i class="fas fa-layer-group"></i>
+          <div>
+            <span>Method Mix</span>
+            <p class="mb-0">Synthesized permit audits, NOAA land cover change, GIS modeling, legal analysis, and economic indicators to ground every insight.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="meta-card h-100">
+          <i class="fas fa-people-group"></i>
+          <div>
+            <span>Who Benefits</span>
+            <p class="mb-0">County planners, coastal residents, and advocacy coalitions mobilizing to defend wetlands, fisheries, and frontline communities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quick-nav nav nav-pills gap-2 justify-content-center mt-4 mb-5" role="navigation" data-aos="fade-up" data-aos-delay="120">
+      <a class="nav-link" href="#overview">Executive Summary</a>
+      <a class="nav-link" href="#value">Why Wetlands Matter</a>
+      <a class="nav-link" href="#scope">Project Scope</a>
+      <a class="nav-link" href="#insights">Key Insights</a>
+      <a class="nav-link" href="#policy">Policy Landscape</a>
+      <a class="nav-link" href="#recommendations">Recommendations</a>
+      <a class="nav-link" href="#artifacts">Artifacts</a>
+    </div>
+
+    <section id="overview" class="rounded-4 p-3 p-lg-5 mb-4 bg-light-alt" data-aos="fade-up" data-aos-delay="140">
+      <h2 class="content-title mb-3">Executive Summary</h2>
+      <p class="mb-3">Wetlands anchor North Carolina’s coastal economy, biodiversity, and flood resilience. Yet federal and state rollbacks in 2023 removed protections for isolated wetlands, putting more than 2.5 million acres at risk. Coastal Carolina Riverwatch commissioned this capstone to clarify the on-the-ground reality in Carteret County and to chart a resilient path forward.</p>
+      <ul class="styled-bullets ps-0 mb-0">
+        <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Despite policy rollbacks, 25 year datasets show minimal net wetland loss or low-intensity development growth, underscoring the value of historic protections.</li>
+        <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Water quality proxies—harmful algal blooms, swim advisories, shellfish closures, and 303(d) listings—remain fragmented, limiting trend detection without better data governance.</li>
+        <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Federal and state legal shifts dramatically shrink wetland jurisdiction, creating an urgent opening for county-level leadership and targeted coalition action.</li>
+      </ul>
+    </section>
+
+    <section id="value" class="rounded-4 p-3 p-lg-5 mb-4 bg-light" data-aos="fade-up" data-aos-delay="160">
+      <h2 class="content-title mb-3">Why Wetlands Matter to Carteret County</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="gradient-card h-100">
+            <h3 class="subtitle mb-2">Economic Safeguards</h3>
+            <p class="mb-0">Wetlands underpin coastal tourism, recreation, and fisheries—supporting up to 90% of recreational catch while buffering storm damage that would otherwise devastate local GDP.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="gradient-card h-100">
+            <h3 class="subtitle mb-2">Biodiversity Strongholds</h3>
+            <p class="mb-0">Carteret wetlands host over 40 threatened or endangered species and maintain nursery habitat for commercially valuable finfish and shellfish, making them key to statewide ecological health.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="gradient-card h-100">
+            <h3 class="subtitle mb-2">Public Health Infrastructure</h3>
+            <p class="mb-0">Healthy wetlands filter pollutants, reduce disease vectors, and sustain nutritious food systems—safeguarding communities from toxins, harmful algal blooms, and sanitation crises.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="gradient-card h-100">
+            <h3 class="subtitle mb-2">Natural Hazard Defense</h3>
+            <p class="mb-0">Dense root systems stabilize shorelines, absorb floodwater, and dissipate wave energy. Loss of wetland vegetation can double erosion rates, leaving neighborhoods exposed to storms.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scope" class="rounded-4 p-3 p-lg-5 mb-4 bg-light-alt" data-aos="fade-up" data-aos-delay="180">
+      <h2 class="content-title mb-3">Project Scope &amp; Approach</h2>
+      <p class="mb-4">To diagnose wetland vulnerability and water-quality trends, the team combined quantitative analysis, geospatial modeling, and legal research across five integrated workstreams.</p>
+      <div class="insight-deck">
+        <div class="insight-card">
+          <h3 class="subtitle mb-2">Permit &amp; Data Audits</h3>
+          <p class="mb-0">Reviewed 10,500+ CAMA and dredge-and-fill permits (1998-2022). Data gaps and inconsistent records limit the reliability of permit counts as standalone degradation indicators.</p>
+        </div>
+        <div class="insight-card">
+          <h3 class="subtitle mb-2">NOAA C-CAP Analysis</h3>
+          <p class="mb-0">Mapped land cover change at five-year intervals. High- and low-intensity development increased modestly; emergent wetlands declined by ~3 sq. miles, suggesting relative stability.</p>
+        </div>
+        <div class="insight-card">
+          <h3 class="subtitle mb-2">GIS Change Detection</h3>
+          <p class="mb-0">Used NLCD rasters and change indices to visualize impervious expansion and wetland class shifts. Detected targeted urban creep near Morehead City but little wholesale wetland loss.</p>
+        </div>
+        <div class="insight-card">
+          <h3 class="subtitle mb-2">Water-Quality Proxies</h3>
+          <p class="mb-0">Evaluated harmful algal blooms, swim advisories, shellfish closures, and Section 303(d) listings. Fragmented datasets and methodology changes obscure definitive trendlines.</p>
+        </div>
+        <div class="insight-card">
+          <h3 class="subtitle mb-2">Policy Landscape Review</h3>
+          <p class="mb-0">Benchmark analysis across federal, state, and county statutes plus peer jurisdictions in Maryland to uncover regulatory gaps and scalable models for Carteret County.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="insights" class="rounded-4 p-3 p-lg-5 mb-4 bg-light" data-aos="fade-up" data-aos-delay="200">
+      <h2 class="content-title mb-3">Key Insights Across the Research</h2>
+      <div class="insight-deck">
+        <div class="insight-card">
+          <h3 class="subtitle mb-2">Part 1 · Land Change Trends</h3>
+          <ul class="styled-bullets ps-0 mb-0">
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Permit counts fluctuated heavily year-to-year, limiting statistical usefulness without better cataloging.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>C-CAP and NLCD data show minimal net wetland loss; woody wetlands remain dominant.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Urban expansion concentrates around existing cores, highlighting the protective effect of prior regulation.</li>
+          </ul>
+        </div>
+        <div class="insight-card">
+          <h3 class="subtitle mb-2">Part 2 · Water-Quality Indicators</h3>
+          <ul class="styled-bullets ps-0 mb-0">
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>83 harmful algal blooms recorded since 1999, heavily clustered near Calico Creek’s wastewater discharge.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Swim advisories and shellfish closures spike after major storms but datasets are inconsistent across agencies.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>303(d) listings shifted due to methodology changes, complicating longitudinal comparisons.</li>
+          </ul>
+        </div>
+        <div class="insight-card">
+          <h3 class="subtitle mb-2">Part 3 · Policy Evolution</h3>
+          <ul class="styled-bullets ps-0 mb-0">
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Supreme Court rulings (Rapanos, Sackett) and the NC Farm Act narrow the Clean Water Act’s wetland reach.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>North Carolina once led on wetland protections; recent rollbacks erase safeguards for isolated systems.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>County-level mechanisms (e.g., Areas of Environmental Concern designations) offer remaining leverage.</li>
+          </ul>
+        </div>
+        <div class="insight-card">
+          <h3 class="subtitle mb-2">Part 4 · Comparative Models</h3>
+          <ul class="styled-bullets ps-0 mb-0">
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Carteret’s current ordinances rely on state standards; little bespoke zoning or mitigation requirements exist.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Other NC counties deploy programmatic solutions (e.g., CCAP, mitigation banks) that Carteret can scale.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Maryland counties demonstrate strong local controls through watershed master plans and critical-area rules.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="policy" class="rounded-4 p-3 p-lg-5 mb-4 bg-light-alt" data-aos="fade-up" data-aos-delay="220">
+      <h2 class="content-title mb-3">Policy Landscape &amp; Levers</h2>
+      <div class="row g-4 policy-grid">
+        <div class="col-md-4">
+          <div class="policy-card h-100">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <i class="fas fa-scale-balanced"></i>
+              <h3 class="subtitle mb-0">Federal Frame</h3>
+            </div>
+            <p class="mb-0">The Navigable Waters Protection Rule and Sackett decision remove adjacent and isolated wetlands from the Clean Water Act, placing compliance burdens on local actors.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="policy-card h-100">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <i class="fas fa-gavel"></i>
+              <h3 class="subtitle mb-0">State Shifts</h3>
+            </div>
+            <p class="mb-0">North Carolina’s Farm Act aligns state definitions with weakened federal standards, reversing decades of leadership on isolated wetland protections.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="policy-card h-100">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <i class="fas fa-map"></i>
+              <h3 class="subtitle mb-0">Local Opportunity</h3>
+            </div>
+            <p class="mb-0">County-level tools—expanded Areas of Environmental Concern, data standards, and tailored development ordinances—can re-establish guardrails and mobilize partners.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="recommendations" class="rounded-4 p-3 p-lg-5 mb-4 bg-light" data-aos="fade-up" data-aos-delay="240">
+      <h2 class="content-title mb-3">Recommendations</h2>
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="recommendation-card h-100">
+            <span class="badge mb-3">Rec 01</span>
+            <h3 class="subtitle mb-2">Modernize Wetland Data Governance</h3>
+            <p class="mb-0">Create a shared, searchable database across NCDEQ divisions and county partners to standardize permit records, water-quality monitoring, and GIS layers. Reliable data is the precondition for responsive policy and enforcement.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="recommendation-card h-100">
+            <span class="badge mb-3">Rec 02</span>
+            <h3 class="subtitle mb-2">Adopt Proven Local Controls</h3>
+            <p class="mb-0">Mirror Maryland’s watershed master plans and natural-feature notices: require site-scale wetland verification, codify mitigation ratios, and integrate resilience planning with community engagement.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="recommendation-card h-100">
+            <span class="badge mb-3">Rec 03</span>
+            <h3 class="subtitle mb-2">Expand County Protections</h3>
+            <p class="mb-0">Leverage CAMA’s Areas of Environmental Concern and broaden local definitions to cover all wetlands of ecological, cultural, or recreational significance—restoring safeguards lost at higher levels of government.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="artifacts" class="artifact-strip mb-4" data-aos="fade-up" data-aos-delay="260">
+      <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
+        <div>
+          <h2 class="content-title mb-2 text-light-custom">Artifacts &amp; Documentation</h2>
+          <p class="mb-0 text-secondary">Access the full report, poster, and supporting materials that informed the recommendations.</p>
+        </div>
+        <div class="d-flex flex-wrap gap-2 align-items-center">
+          <a class="btn btn-theme" href="../undergraduate-policy-capstone/The%20Future%20of%20Coastal%20NC%20Wetlands%20Final%20Report.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf me-2"></i>Final Report (PDF)</a>
+          <a class="btn btn-theme" href="../undergraduate-policy-capstone/PLCY%20698%20Capstone%20Poster%20.png" target="_blank" rel="noopener"><i class="fas fa-image me-2"></i>Poster (PNG)</a>
+          <span class="badge-custom">Capstone • Spring 2023</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../js/jquery-1.11.0.min.js"></script>
+  <script src="../../../js/plugins.js"></script>
+  <script src="../../../js/script.js?v=2"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const quickNavLinks = document.querySelectorAll('.quick-nav .nav-link');
+      if (quickNavLinks.length) {
+        const quickNavSections = Array.from(quickNavLinks)
+          .map(function (link) {
+            const id = link.getAttribute('href');
+            if (!id || !id.startsWith('#')) {
+              return null;
+            }
+            const target = document.querySelector(id);
+            return target ? { link: link, target: target } : null;
+          })
+          .filter(Boolean);
+
+        if (quickNavSections.length) {
+          const navObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                quickNavLinks.forEach(function (navLink) {
+                  navLink.classList.remove('active');
+                  navLink.removeAttribute('aria-current');
+                });
+                const activeSection = quickNavSections.find(function (section) {
+                  return section.target === entry.target;
+                });
+                if (activeSection) {
+                  activeSection.link.classList.add('active');
+                  activeSection.link.setAttribute('aria-current', 'true');
+                }
+              }
+            });
+          }, { rootMargin: '-45% 0px -45% 0px', threshold: 0.1 });
+
+          quickNavSections.forEach(function (section) {
+            navObserver.observe(section.target);
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Energy's Role in Climate Resilience | Academic</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../../../style.css" />
+  <style>
+    .hero-capstone {
+      position: relative;
+      background: linear-gradient(140deg, rgba(53, 74, 69, 0.96) 0%, rgba(23, 33, 30, 0.98) 60%, rgba(14, 20, 18, 1) 100%);
+      border: 2px solid rgba(233, 169, 125, 0.25);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.32);
+      overflow: hidden;
+    }
+    .hero-capstone::after {
+      content: "";
+      position: absolute;
+      inset: 18% -20% -30% 50%;
+      background: radial-gradient(60% 80% at 30% 40%, rgba(233,169,125,0.35), transparent 70%);
+      opacity: 0.8;
+      transform: rotate(-8deg);
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-back-link {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      z-index: 3;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 34px;
+      border-radius: 999px;
+      background: rgba(14, 21, 19, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+      margin-bottom: 16px;
+      min-width: 520px;
+    }
+    .hero-badge img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+    .hero-badge span {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+    .narratives-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (min-width: 768px) {
+      .narratives-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .narratives-grid .gradient-card {
+      height: 100%;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .narratives-grid .gradient-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.16);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .narratives-grid .gradient-card,
+      .timeline-card,
+      .timeline-step::before,
+      .quick-nav .nav-link {
+        transition: none !important;
+      }
+    }
+
+    .btn-theme {
+      background-color: var(--secondary-color);
+      border: 2px solid var(--text-dark);
+      color: var(--text-dark);
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 12px 28px;
+      box-shadow: 0 12px 24px rgba(233, 169, 125, 0.32);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+    }
+    .btn-theme.btn-sm {
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      box-shadow: 0 8px 18px rgba(233, 169, 125, 0.24);
+    }
+    .btn-theme:hover {
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.28);
+    }
+    .hero-primary {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-weight: 600;
+      color: var(--text-light);
+      letter-spacing: 0.01em;
+    }
+    .hero-primary i { color: var(--secondary-color); }
+    .hero-primary.hero-partner {
+      margin-top: 10px;
+    }
+    .hero-stat-card {
+      border-radius: 20px;
+      background: rgba(15, 22, 20, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 24px;
+      backdrop-filter: blur(8px);
+      text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+    .hero-stat-card .stat-value {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--secondary-color);
+    }
+    .hero-stat-card hr {
+      border-color: rgba(255, 255, 255, 0.12);
+      margin: 1.2rem 0;
+    }
+    .hero-stat-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+    .hero-stat-grid > div {
+      flex: 1 1 45%;
+      background: rgba(10, 16, 14, 0.6);
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+    .hero-stat-grid > div small { display: block; margin-top: 6px; color: rgba(255,255,255,0.7); }
+    .framework-callout {
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(233, 169, 125, 0.24), rgba(53, 74, 69, 0.38));
+      border: 1px solid rgba(233, 169, 125, 0.4);
+      padding: 18px;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+    }
+    .framework-callout i {
+      font-size: 1.8rem;
+      color: var(--secondary-color);
+    }
+    .hero-meta .meta-card {
+      background: rgba(15, 23, 21, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      color: var(--text-light);
+      backdrop-filter: blur(6px);
+    }
+    .hero-meta .meta-card i {
+      font-size: 1.6rem;
+      color: var(--secondary-color);
+    }
+    .hero-meta .meta-card span {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .quick-nav .nav-link {
+      color: var(--text-light);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 9px 22px;
+      backdrop-filter: blur(8px);
+      transition: all 0.2s ease;
+    }
+    .quick-nav .nav-link:hover, .quick-nav .nav-link:focus {
+      background: var(--secondary-color);
+      color: var(--text-dark);
+      border-color: var(--text-dark);
+    }
+    .quick-nav .nav-link.active {
+      background: var(--secondary-color);
+      color: var(--text-dark);
+      border-color: var(--secondary-color);
+      box-shadow: 0 16px 32px rgba(233, 169, 125, 0.25);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(233, 169, 125, 0.4), rgba(53, 74, 69, 0.75));
+    }
+    .timeline-step {
+      position: relative;
+      margin-bottom: 28px;
+      padding-left: 22px;
+    }
+    .timeline-step:last-child { margin-bottom: 0; }
+    .timeline-step::before {
+      content: "";
+      position: absolute;
+      left: -18px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(233, 169, 125, 0.28);
+      border: 2px solid rgba(233, 169, 125, 0.55);
+      box-shadow: none;
+      transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .timeline-step.is-active::before {
+      background: var(--secondary-color);
+      border-color: rgba(233, 169, 125, 0.95);
+      box-shadow: 0 0 0 4px rgba(233, 169, 125, 0.25);
+      transform: scale(1.15);
+    }
+    .timeline-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px 22px;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(53, 74, 69, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .timeline-step.is-active .timeline-card {
+      transform: translateX(8px);
+      border-color: rgba(233, 169, 125, 0.65);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
+    }
+
+    .insight-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-left: 0;
+      margin-top: 280px;
+    }
+
+    .insight-tabs .nav-link {
+      border-radius: 14px;
+      padding: 16px 20px;
+      background: var(--light-bg-alt);
+      color: var(--text-dark);
+      font-weight: 600;
+      border: 1px solid rgba(53,74,69,0.25);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 260px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .insight-tabs .nav-link.active {
+      background: var(--secondary-color);
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+      box-shadow: 0 18px 32px rgba(233, 169, 125, 0.32);
+      transform: translateY(2px);
+    }
+
+    .insight-tabs .nav-link:hover {
+      border-color: var(--secondary-color);
+      box-shadow: 0 10px 20px rgba(233,169,125,0.22);
+      transform: translateY(1px);
+    }
+
+    .insight-tabs .nav-link .tab-label {
+      font-size: 1.02rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .insight-tabs .nav-link .tab-hint {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(17, 26, 23, 0.65);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }    .tab-pane {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      margin-top: 12px;
+    }
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dark);
+      background: rgba(233, 169, 125, 0.5);
+      border: 1px solid rgba(233, 169, 125, 0.9);
+      border-radius: 999px;
+      padding: 6px 12px;
+      margin-bottom: 10px;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .timeline-step.is-active .step-badge {
+      background: rgba(233, 169, 125, 0.9);
+      border-color: rgba(233, 169, 125, 1);
+      color: var(--text-dark);
+    }
+    .policy-grid .policy-card {
+      background: linear-gradient(135deg, rgba(233, 169, 125, 0.15), rgba(53, 74, 69, 0.18));
+      border: 1px solid rgba(53, 74, 69, 0.35);
+      border-radius: 18px;
+      padding: 22px;
+      height: 100%;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    .policy-grid .policy-card i { color: var(--secondary-color); font-size: 1.5rem; }
+    .artifact-strip {
+      background: linear-gradient(135deg, rgba(53,74,69,0.93), rgba(21,28,25,0.96));
+      border-radius: 22px;
+      padding: 32px;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+      color: var(--text-light);
+    }
+    .artifact-strip .badge-custom {
+      background: rgba(255, 255, 255, 0.12) !important;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: var(--text-light);
+    }
+    .title-no-wrap { white-space: nowrap; }
+    @media (max-width: 991.98px) {
+      .hero-capstone { border-width: 1px; }
+      .hero-meta .meta-card { flex-direction: column; }
+      .quick-nav { justify-content: center; }
+      .hero-badge { min-width: auto; width: 100%; justify-content: flex-start; }
+      .title-no-wrap { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <header class="py-3 px-3 px-lg-4">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="text-light-custom fw-bold">Tristen</div>
+    </div>
+  </header>
+
+  <main class="container py-4 py-lg-5">
+    <!-- Hero -->
+    <section class="hero-capstone rounded-4 p-4 p-lg-5 mb-4 text-light-custom" data-aos="fade-up">
+      <div class="hero-content">
+        <a href="../../../portfolio.html" class="btn btn-theme btn-sm hero-back-link"><i class="fas fa-arrow-left me-2"></i>Back to Portfolio</a>
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-8">
+            <div class="hero-badge">
+              <img src="../../../images/Old_Well_mark.png" alt="UNC Old Well logo">
+              <span>UNC Master of Public Policy Capstone</span>
+            </div>
+            <h1 class="display-4 mt-2 mb-3 pe-lg-4">Energy's Role in Climate Resilience: A Q Methodology Study of Governance and Community Priorities in North Carolina</h1>
+            <p class="lead text-light-custom mb-4">Mapping how North Carolina stakeholders envision resilient, justice-centered energy systems in the wake of Hurricane Helene and surging demand, translating divergent viewpoints into actionable guidance for policy and community planning.</p>
+            <div class="hero-primary"><i class="fas fa-user-tie"></i> Primary Investigator: Tristen Best, MPP Candidate (Energy Policy)</div>
+            <div class="hero-primary hero-partner"><i class="fas fa-handshake-angle"></i> Capstone Partner: Energy Transition Initiative</div>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <a class="btn btn-theme" href="../../../documents/BestT_Capstone_FINAL.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf me-2"></i>View PDF</a>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="hero-stat-card">
+              <div class="stat-value">9</div>
+              <p class="mb-2">Stakeholder Q-sorts spanning local officials, utilities, community advocates, and policy professionals.</p>
+              <hr />
+              <div class="hero-stat-grid">
+                <div>
+                  <div class="fw-bold text-secondary display-6">50</div>
+                  <small>Research statements spanning equity, governance, infrastructure, and markets.</small>
+                </div>
+                <div>
+                  <div class="fw-bold text-secondary display-6">2</div>
+                  <small>Divergent resilience narratives surfaced through factor analysis.</small>
+                </div>
+              </div>
+              <div class="framework-callout mt-2">
+                <i class="fas fa-sitemap"></i>
+                <div>
+                  <div class="fw-bold text-light-custom">Practitioner framework delivered</div>
+                  <p class="mb-0 small">Comprehensive roadmap enabling agencies to translate Q-factor insights into resilient funding and program design.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-meta row g-3 mt-4">
+          <div class="col-sm-6 col-lg-3">
+            <div class="meta-card">
+              <i class="fas fa-flask"></i>
+              <div>
+                <span>Method</span>
+                <small>Q methodology with principal component analysis & varimax rotation.</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="meta-card">
+              <i class="fas fa-diagram-project"></i>
+              <div>
+                <span>Design</span>
+                <small>Mixed-method stakeholder study aligning qualitative insight with quantitative sorting.</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="meta-card">
+              <i class="fas fa-earth-americas"></i>
+              <div>
+                <span>Domain</span>
+                <small>Energy transition, climate resilience, disaster adaptation, governance.</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="meta-card">
+              <i class="fas fa-people-group"></i>
+              <div>
+                <span>Stakeholders</span>
+                <small>Local governments, utilities, community leaders, policy advisors.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-nav nav nav-pills gap-2 mt-4" role="navigation">
+          <a class="nav-link" href="#abstract">Abstract</a>
+          <a class="nav-link" href="#methods">Methods</a>
+          <a class="nav-link" href="#findings">Findings</a>
+          <a class="nav-link" href="#policy">Policy Playbook</a>
+          <a class="nav-link" href="#artifacts">Artifacts</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Abstract + Executive Summary -->
+    <section id="abstract" class="bg-light-alt rounded-4 p-3 p-lg-5 mb-4" data-aos="clip-bottom" data-aos-duration="800">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-7">
+          <h2 class="content-title mb-2">Abstract</h2>
+          <p class="mb-2">This graduate capstone applies Q methodology to illuminate how North Carolina stakeholders conceptualize climate and energy resilience as the state faces intensifying hazards and escalating demand. Participants sorted fifty statements derived from literature, policy discourse, and ETI partnerships; factor analysis surfaced two distinct narratives spanning equity, governance, technology, and risk. The project integrates resilience theory, energy justice, and adaptive governance to argue for inclusive, locally tuned resilience planning.</p>
+          <p class="mb-0">Findings provide actionable guidance for institutions, including UNC's Energy Transition Initiative, seeking to anchor low-carbon investments and policy strategies in community-defined priorities.</p>
+        </div>
+        <div class="col-lg-5">
+          <h2 class="content-title mb-2">Executive Summary Highlights</h2>
+          <ul class="styled-bullets ps-0">
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Hurricane Helene (2024) left over one million without power and caused $1.4B in grid damage, underscoring the urgency of strategic resilience investments.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Statewide population growth above 11M amplifies load demand and stresses aging infrastructure.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Stakeholder cohort includes policymakers, utility officials, local leaders, and community advocates, capturing urban, coastal, and rural lenses.</li>
+            <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Two dominant perspectives emerge, revealing complementary yet tension-filled visions for equitable, reliable energy futures.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methods / Design -->
+    <section id="methods" class="rounded-4 p-3 p-lg-5 mb-4 bg-light-alt" data-aos="fade-up" data-aos-delay="100">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <h2 class="content-title mb-3">Method & Study Architecture</h2>
+          <p class="mb-3">Designed with UNC's Energy Transition Initiative, the study blends structured Q-sorts with qualitative debriefs to capture nuanced viewpoints on resilience, governance, and equity. The analytic workflow pairs rigorous factor extraction with narrative interpretation to transform subjective positions into policy-relevant storylines.</p>
+          <div class="gradient-card">
+            <h3 class="subtitle mb-2">Why Q Methodology?</h3>
+            <p class="mb-2">Q bridges qualitative insight and quantitative clustering, ideal for surfacing latent coalitions when policy debates are polarized or data-light.</p>
+            <ul class="styled-bullets ps-0 mb-0">
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Centers lived expertise while preserving analytic rigor.</li>
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Reveals consensus and fault lines that traditional surveys miss.</li>
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Creates actionable factor narratives aligned with ETI programming.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="timeline">
+            <div class="timeline-step">
+              <div class="timeline-card">
+                <div class="step-badge">Step 1</div>
+                <h3 class="subtitle mb-1">Statement Design</h3>
+                <p class="mb-0">Fifty statements synthesized from resilience research, state energy policy debates, and ETI consultations, covering authority, infrastructure, equity, climate risk, and markets.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-card">
+                <div class="step-badge">Step 2</div>
+                <h3 class="subtitle mb-1">Stakeholder Sorting</h3>
+                <p class="mb-0">Nine participants, including municipal resilience officers, cooperative and investor-owned utility staff, nonprofit leaders, and policy advisors, ranked statements on a forced quasi-normal grid.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-card">
+                <div class="step-badge">Step 3</div>
+                <h3 class="subtitle mb-1">Factor Extraction</h3>
+                <p class="mb-0">Principal components with varimax rotation isolated two dominant factors explaining the majority of variance, capturing distinct governance philosophies.</p>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-card">
+                <div class="step-badge">Step 4</div>
+                <h3 class="subtitle mb-1">Narrative Construction</h3>
+                <p class="mb-0">Merged quantitative loadings with qualitative follow-ups to craft scenario-based narratives, ready for policy workshops and ETI pilot design.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Findings / Perspectives -->
+    <section id="findings" class="rounded-4 p-3 p-lg-5 mb-4 bg-light-alt" data-aos="fade-up" data-aos-delay="150">
+      <div class="row g-4 align-items-start mb-4">
+        <div class="col-lg-5">
+          <h2 class="content-title mb-3">Two Complementary Narratives</h2>
+          <p class="mb-3">Both factors champion resilience yet diverge on governance: one foregrounds justice-oriented mandates, the other seeks technocratic modernization. Together they spotlight the policy choreography required to secure durable support statewide.</p>
+          <div class="narratives-grid" role="list">
+            <div class="gradient-card" role="listitem">
+              <h3 class="subtitle mb-2">Shared Ground</h3>
+              <ul class="styled-bullets ps-0 mb-0">
+                <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Agreement that resilience must extend beyond hardening assets to strengthening community capacity.</li>
+                <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Recognition that climate risk is escalating faster than current investment cycles.</li>
+                <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Support for pairing federal incentives with targeted local implementation.</li>
+              </ul>
+            </div>
+            <div class="gradient-card" role="listitem">
+              <h3 class="subtitle mb-2">Where They Diverge</h3>
+              <ul class="styled-bullets ps-0 mb-0">
+                <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Justice-oriented pragmatists prioritize state mandates, public investment, and equity metrics; technocratic modernizers emphasize expert discretion, performance data, and rate structures.</li>
+                <li><i class="fas fa-chevron-right me-2 text-yellow"></i>One coalition seeks transparency and community benefits agreements, while the other stresses risk modeling and cost-benefit vetting.</li>
+                <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Differing comfort with politicized framing signals the need to balance moral appeals with reliability narratives.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7 mt-3 mt-lg-0 ps-lg-3">
+          <div class="insight-tabs mb-3" role="tablist">
+            <button class="nav-link active" id="perspective-one-tab" data-bs-toggle="pill" data-bs-target="#perspective-one" type="button" role="tab" aria-controls="perspective-one" aria-selected="true">
+              <span class="tab-label"><i class="fas fa-scale-balanced me-2"></i>Justice-Oriented Clean Energy Pragmatists</span>
+              <span class="tab-hint">Click to view narrative <i class="fas fa-arrow-turn-down"></i></span>
+            </button>
+            <button class="nav-link" id="perspective-two-tab" data-bs-toggle="pill" data-bs-target="#perspective-two" type="button" role="tab" aria-controls="perspective-two" aria-selected="false">
+              <span class="tab-label"><i class="fas fa-microchip me-2"></i>Technocratic Resilience Modernizers</span>
+              <span class="tab-hint">Click to view narrative <i class="fas fa-arrow-turn-down"></i></span>
+            </button>
+          </div>
+          <div class="tab-content mt-2" id="perspectiveTabsContent">
+            <div class="tab-pane fade show active" id="perspective-one" role="tabpanel" aria-labelledby="perspective-one-tab">
+              <h3 class="subtitle mb-2">Equity-forward resilience playbook</h3>
+              <p class="mb-3">Prioritizes public investment, regulatory mandates, and inclusive governance to safeguard historically marginalized communities.</p>
+              <ul class="styled-bullets ps-0 mb-0">
+                <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Calls for targeted resilience funding, community benefits agreements, and transparency in grid planning.</li>
+                <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Sees state leadership as essential to correcting legacy disparities and coordinating coastal protection.</li>
+                <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Aligns with energy justice frameworks and climate equity mandates emerging across the Southeast.</li>
+              </ul>
+              <div class="mt-3">
+                <h4 class="subtitle mb-2">Top ranked statements</h4>
+                <ul class="styled-bullets ps-0 mb-2">
+                  <li><i class="fas fa-circle me-2 text-yellow"></i><strong>#5.</strong> Stricter government regulations on greenhouse gas emissions are necessary to protect communities from climate impacts.</li>
+                  <li><i class="fas fa-circle me-2 text-yellow"></i><strong>#8.</strong> Public investment in green infrastructure is the best way to ensure equitable climate resilience.</li>
+                </ul>
+                <h4 class="subtitle mb-2">Lowest ranked statements</h4>
+                <ul class="styled-bullets ps-0 mb-0">
+                  <li><i class="fas fa-circle me-2 text-yellow"></i><strong>#7.</strong> Reducing government oversight will allow free-market competition to spur better energy solutions.</li>
+                  <li><i class="fas fa-circle me-2 text-yellow"></i><strong>#48.</strong> Expanding natural gas infrastructure is a necessary bridge to a cleaner energy future.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="perspective-two" role="tabpanel" aria-labelledby="perspective-two-tab">
+              <h3 class="subtitle mb-2">Modernization with technical guardrails</h3>
+              <p class="mb-3">Champions data-driven planning, asset upgrades, and expert-led coordination to minimize downtime and economic disruption.</p>
+              <ul class="styled-bullets ps-0 mb-0">
+                <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Supports federal subsidies and rate structures that accelerate grid hardening and storage deployment.</li>
+                <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Advocates for performance metrics, cost-benefit analysis, and risk modeling to prioritize investments.</li>
+                <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Prefers depoliticized framing, keeping resilience debates anchored in reliability and economic competitiveness.</li>
+              </ul>
+              <div class="mt-3">
+                <h4 class="subtitle mb-2">Top ranked statements</h4>
+                <ul class="styled-bullets ps-0 mb-2">
+                  <li><i class="fas fa-circle me-2 text-yellow"></i><strong>#3.</strong> Federal subsidies are crucial for the energy market and real innovation in climate resilience.</li>
+                  <li><i class="fas fa-circle me-2 text-yellow"></i><strong>#35.</strong> Retrofitting existing buildings for energy efficiency is a top priority for climate resilience.</li>
+                </ul>
+                <h4 class="subtitle mb-2">Lowest ranked statements</h4>
+                <ul class="styled-bullets ps-0 mb-0">
+                  <li><i class="fas fa-circle me-2 text-yellow"></i><strong>#47.</strong> A statewide resilience task force, representing all counties, would streamline decision-making.</li>
+                  <li><i class="fas fa-circle me-2 text-yellow"></i><strong>#31.</strong> Building community trust is more important than scientific data for successful resilience initiatives.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="policy-grid row g-4">
+        <div class="col-md-4">
+          <div class="policy-card h-100">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <i class="fas fa-handshake-angle"></i>
+              <h3 class="subtitle mb-0">Bridge the visions</h3>
+            </div>
+            <p class="mb-0">Design blended portfolios that pair equity-first programs (weatherization, community microgrids) with large-scale modernization (storage, transmission) to maintain broad coalitions.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="policy-card h-100">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <i class="fas fa-comments"></i>
+              <h3 class="subtitle mb-0">Institutionalize co-design</h3>
+            </div>
+            <p class="mb-0">Embed Q-method workshops and participatory design sprints into ETI pilots, surfacing trade-offs early and translating factor narratives into implementation charters.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="policy-card h-100">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <i class="fas fa-bullseye"></i>
+              <h3 class="subtitle mb-0">Target high-risk communities</h3>
+            </div>
+            <p class="mb-0">Prioritize resilience dollars toward coastal, low-income, and frontline communities while ensuring technocratic metrics capture social as well as physical vulnerability.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Policy Playbook / Next Steps -->
+    <section id="policy" class="rounded-4 p-3 p-lg-5 mb-4 bg-light-alt" data-aos="fade-up" data-aos-delay="180">
+      <h2 class="content-title mb-3">Implementation Roadmap</h2>
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-6">
+          <div class="gradient-card h-100">
+            <h3 class="subtitle mb-2">Pilot Concepts with ETI</h3>
+            <ul class="styled-bullets ps-0 mb-0">
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Develop a "Resilience Alignment" workshop toolkit translating factor statements into implementation principles for municipalities.</li>
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Pair microgrid feasibility studies with community benefit scoring derived from pragmatist factor priorities.</li>
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Launch a data dashboard tracking reliability, outage equity, and investment flows to satisfy technocratic benchmarks.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="gradient-card h-100">
+            <h3 class="subtitle mb-2">Policy Levers</h3>
+            <ul class="styled-bullets ps-0 mb-0">
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Leverage House Bill 951 implementation to braid federal (IRA) incentives with justice-centered state programs.</li>
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Adopt resilience cost-sharing models that reward utilities for equitable planning and data transparency.</li>
+              <li><i class="fas fa-chevron-right me-2 text-yellow"></i>Integrate Q-method findings into North Carolina resilience planning documents and coastal adaptation compacts.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Artifacts -->
+    <section id="artifacts" class="artifact-strip mb-4" data-aos="fade-up" data-aos-delay="220">
+      <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
+        <div>
+          <h2 class="content-title mb-2 text-light-custom">Artifacts & Documentation</h2>
+          <p class="mb-0 text-secondary">Full capstone report, IRB exemption details, and stakeholder synthesis ready for policy distribution.</p>
+        </div>
+        <div class="d-flex flex-wrap gap-2 align-items-center">
+          <a class="btn btn-theme" href="../../../documents/BestT_Capstone_FINAL.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf me-2"></i>Final Report (PDF)</a>
+          <span class="badge-custom">IRB Exempt (#25-0460)</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../js/jquery-1.11.0.min.js"></script>
+  <script src="../../../js/plugins.js"></script>
+  <script src="../../../js/script.js?v=2"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const quickNavLinks = document.querySelectorAll('.quick-nav .nav-link');
+      if (quickNavLinks.length) {
+        const quickNavSections = Array.from(quickNavLinks)
+          .map(function (link) {
+            const id = link.getAttribute('href');
+            if (!id || !id.startsWith('#')) {
+              return null;
+            }
+            const target = document.querySelector(id);
+            return target ? { link: link, target: target } : null;
+          })
+          .filter(Boolean);
+
+        if (quickNavSections.length) {
+          const navObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                quickNavLinks.forEach(function (navLink) {
+                  navLink.classList.remove('active');
+                  navLink.removeAttribute('aria-current');
+                });
+                const activeSection = quickNavSections.find(function (section) {
+                  return section.target === entry.target;
+                });
+                if (activeSection) {
+                  activeSection.link.classList.add('active');
+                  activeSection.link.setAttribute('aria-current', 'true');
+                }
+              }
+            });
+          }, { rootMargin: '-45% 0px -45% 0px', threshold: 0.1 });
+
+          quickNavSections.forEach(function (section) {
+            navObserver.observe(section.target);
+          });
+        }
+      }
+
+      const timelineSteps = document.querySelectorAll('.timeline-step');
+      if (timelineSteps.length) {
+        const timelineObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-active');
+            } else if (entry.boundingClientRect.top > window.innerHeight) {
+              entry.target.classList.remove('is-active');
+            }
+          });
+        }, { threshold: 0.35 });
+
+        timelineSteps.forEach(function (step) {
+          timelineObserver.observe(step);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
