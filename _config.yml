@@ -1,0 +1,29 @@
+title: "Tristen"
+description: "Portfolio, photography, and blog"
+baseurl: ""
+url: ""  # set your production URL if desired
+permalink: pretty
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+exclude:
+  - templates
+  - node_modules
+
+collections:
+  photography:
+    output: true
+    permalink: /projects/photography/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: "photography"
+    values:
+      layout: photography
+      uniform_gallery: true

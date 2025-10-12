@@ -1,23 +1,19 @@
+---
+layout: null
+title: Tristen - Blog
+---
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tristen - Blog</title>
-  <!-- Bootstrap CSS -->
+  <title>{{ page.title }}</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&family=Great+Vibes&family=Playfair+Display:wght@600;700;800&display=swap"
-    rel="stylesheet" />
-  <!-- Font Awesome for icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&family=Great+Vibes&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- AOS Animation CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <!-- Swiper JS CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <!-- custom style CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
 
 
@@ -228,21 +224,47 @@
         <div class="row justify-content-center">
           <div class="col-12 col-xl-10">
             <article class="blog-feature-card" data-aos="fade-up">
-              <a href="[Insert Link Here]" class="feature-media">
+              {% assign latest = site.posts | first %}
+              {% if latest %}
+              <a href="{{ latest.url | relative_url }}" class="feature-media">
+                {% if latest.thumbnail %}
+                <img src="{{ latest.thumbnail | relative_url }}" alt="{{ latest.title | escape }}" class="img-fluid">
+                {% endif %}
+                <div class="media-badge"><i class="fas fa-sparkles"></i>Fresh drop</div>
+              </a>
+              {% else %}
+              <a href="blog/first-launch.html" class="feature-media">
                 <img src="images/post1-preview.jpg" alt="Launch post thumbnail" class="img-fluid">
                 <div class="media-badge"><i class="fas fa-sparkles"></i>Fresh drop</div>
               </a>
+              {% endif %}
               <div class="feature-content">
                 <div class="feature-meta">
+                  {% if latest %}
+                  <span class="feature-meta-item"><i class="fas fa-calendar"></i>{{ latest.date | date: "%B %-d, %Y" }}</span>
+                  {% if latest.tag %}<span class="feature-meta-item"><i class="fas fa-bolt"></i>{{ latest.tag }}</span>{% endif %}
+                  {% else %}
                   <span class="feature-meta-item"><i class="fas fa-calendar"></i>September 13, 2025</span>
                   <span class="feature-meta-item"><i class="fas fa-bolt"></i>Launch Log</span>
+                  {% endif %}
                 </div>
                 <h3 class="feature-title">
-                  <a href="[Insert Link Here]">Launching My First Website &mdash; and Capping Graduate Studies at UNC</a>
+                  {% if latest %}
+                  <a href="{{ latest.url | relative_url }}">{{ latest.title }}</a>
+                  {% else %}
+                  <a href="blog/first-launch.html">Launching My First Website &mdash; and Capping Graduate Studies at UNC</a>
+                  {% endif %}
                 </h3>
-                <p class="feature-excerpt">A launch note, lessons learned, and gratitude from my time at UNC Chapel Hill.</p>
+                <p class="feature-excerpt">
+                  {% if latest %}{{ latest.excerpt | strip_html | truncate: 160 }}
+                  {% else %}A launch note, lessons learned, and gratitude from my time at UNC Chapel Hill.{% endif %}
+                </p>
               </div>
-              <a href="[Insert Link Here]" class="feature-cta">Read the story <i class="fas fa-arrow-right"></i></a>
+              {% if latest %}
+              <a href="{{ latest.url | relative_url }}" class="feature-cta">Read the story <i class="fas fa-arrow-right"></i></a>
+              {% else %}
+              <a href="blog/first-launch.html" class="feature-cta">Read the story <i class="fas fa-arrow-right"></i></a>
+              {% endif %}
             </article>
           </div>
         </div>

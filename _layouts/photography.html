@@ -1,20 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Title &mdash; Photography Template V2</title>
-
-  <!-- Core site assets -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&family=Great+Vibes&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="../../../style.css" />
-
-  <!-- Template-specific styling -->
-  <style>
+  <head>
+    {% include head.html %}
+    <style>
     :root {
       --hero-glow: rgba(233,169,125,0.45);
       --hero-deep: rgba(8,36,43,0.9);
@@ -142,34 +130,34 @@
       position: relative;
       border-radius: 20px;
       overflow: hidden;
-      border: 2px solid rgba(255,255,255,0.26);
-      box-shadow: 0 24px 40px rgba(0,0,0,0.35);
-      transform-origin: center;
-      transition: transform .35s ease, box-shadow .35s ease;
+      border: 2px solid rgba(255,255,255,0.22);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.45);
+      transform-style: preserve-3d;
+      transition: transform .2s ease;
+      height: 240px;
     }
-
     .hero-preview-tile img {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      filter: saturate(1.08);
     }
-
-    .hero-preview-tile:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 32px 54px rgba(0,0,0,0.45);
+    @media (min-width: 768px) {
+      .hero-preview-tile { height: 280px; }
+    }
+    @media (min-width: 1200px) {
+      .hero-preview-tile { height: 300px; }
     }
 
     .scroll-hint {
       position: absolute;
       left: 50%;
-      bottom: 12px;
+      bottom: 14px;
       transform: translateX(-50%);
+      color: rgba(255,255,255,0.78);
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      color: rgba(255,255,255,0.7);
       letter-spacing: .12em;
       text-transform: uppercase;
       font-size: 0.75rem;
@@ -263,6 +251,19 @@
     .masonry-item.small { grid-row: span 1; }
     .masonry-item.tall { grid-row: span 2; }
 
+    /* Uniform gallery option (forces consistent tile heights like other projects) */
+    .masonry-gallery.uniform-gallery .masonry-item {
+      height: 240px;
+    }
+    .masonry-gallery.uniform-gallery .masonry-item .image-link { height: 100%; width: 100%; display: block; }
+    .masonry-gallery.uniform-gallery .masonry-item .image-link img { height: 100%; width: 100%; object-fit: cover; }
+    @media (min-width: 768px) {
+      .masonry-gallery.uniform-gallery .masonry-item { height: 280px; }
+    }
+    @media (min-width: 1200px) {
+      .masonry-gallery.uniform-gallery .masonry-item { height: 300px; }
+    }
+
     /* Footer navigation */
     .project-nav {
       margin: clamp(32px, 6vw, 72px) auto;
@@ -306,119 +307,119 @@
       .hero-floating-media { order: -1; }
       .hero-meta-inline { flex-direction: column; align-items: flex-start; gap: 6px; }
     }
-  </style>
-</head>
+    </style>
+  </head>
+  <body>
+    <header class="photo-v2-hero" data-aos="fade-up">
+      <div class="hero-nav">
+        <div class="brand">{{ site.title }}</div>
+        <a href="{{ '/portfolio.html' | relative_url }}" class="btn-arrow"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+      </div>
 
-<body>
-  <header class="photo-v2-hero" data-aos="fade-up">
-    <div class="hero-nav">
-      <div class="brand">TB Photography</div>
-      <a href="../../../portfolio.html" class="btn-arrow"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
-    </div>
+      <div class="hero-core">
+        <div class="hero-copy">
+          <h1>{{ page.title }}</h1>
+          <div class="hero-meta-inline">
+            {% if page.location %}<span class="meta-location"><i class="fas fa-location-dot"></i> {{ page.location }}</span>{% endif %}
+            {% if page.captured %}<span class="meta-captured"><i class="fas fa-calendar"></i> {{ page.captured }}</span>{% elsif page.year %}<span class="meta-captured"><i class="fas fa-calendar"></i> {{ page.year }}</span>{% endif %}
+          </div>
+          {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% elsif page.summary %}<p class="lead">{{ page.summary }}</p>{% endif %}
 
-    <div class="hero-core">
-      <div class="hero-copy">
-        <h1>Project Title</h1>
-        <div class="hero-meta-inline">
-          <span class="meta-location"><i class="fas fa-location-dot"></i> Location highlight</span>
-          <span class="meta-captured"><i class="fas fa-calendar"></i> Month YYYY</span>
+          <div class="hero-chips">
+            {% if page.camera %}<span class="hero-chip"><i class="fas fa-camera"></i> {{ page.camera }}</span>{% endif %}
+            {% if page.film %}<span class="hero-chip"><i class="fas fa-film"></i> {{ page.film }}</span>{% endif %}
+          </div>
         </div>
-        <p class="lead">Open with a concise headline. What did you chase, why does it matter, and what should viewers look for as they scroll?</p>
 
-        <div class="hero-chips">
-          <span class="hero-chip"><i class="fas fa-camera"></i> Camera body</span>
-          <span class="hero-chip"><i class="fas fa-film"></i> Film or settings</span>
+        <div class="hero-floating-media" id="floatingMedia">
+          {% assign previews = page.hero_images | default: page.images %}
+          {% if previews and previews.size > 0 %}
+            {% assign p1 = previews[0] %}
+            {% assign p2 = previews[1] %}
+            {% assign p3 = previews[2] %}
+            {% if p1 %}<div class="hero-preview-tile" data-tilt="-4">
+              <img src="{{ p1 | relative_url }}" alt="{{ page.title }} preview 1" />
+            </div>{% endif %}
+            {% if p2 %}<div class="hero-preview-tile" data-tilt="3">
+              <img src="{{ p2 | relative_url }}" alt="{{ page.title }} preview 2" />
+            </div>{% endif %}
+            {% if p3 %}<div class="hero-preview-tile" data-tilt="-6">
+              <img src="{{ p3 | relative_url }}" alt="{{ page.title }} preview 3" />
+            </div>{% endif %}
+          {% endif %}
         </div>
       </div>
 
-      <div class="hero-floating-media" id="floatingMedia">
-        <div class="hero-preview-tile" data-tilt="-4">
-          <img src="../../../images/projects/example/001.jpg" alt="Preview still" />
-        </div>
-        <div class="hero-preview-tile" data-tilt="3">
-          <img src="../../../images/projects/example/002.jpg" alt="Preview still" />
-        </div>
-        <div class="hero-preview-tile" data-tilt="-6">
-          <img src="../../../images/projects/example/003.jpg" alt="Preview still" />
-        </div>
-      </div>
-    </div>
+      <div class="scroll-hint"><i class="fas fa-angle-down"></i> Scroll to explore</div>
+    </header>
 
-    <div class="scroll-hint"><i class="fas fa-angle-down"></i> Scroll to explore</div>
-  </header>
+    <main class="container pb-5">
+      {% if page.intro or page.cards %}
+      <section class="photo-story" data-aos="fade-up" data-aos-delay="50">
+        {% if page.intro %}<p class="story-intro">{{ page.intro }}</p>{% endif %}
 
-  <main class="container pb-5">
-    <section class="photo-story" data-aos="fade-up" data-aos-delay="50">
-      <p class="story-intro">Use this paragraph to set the stage&mdash;call out the moment, the neighborhood, the weather, or the reason this shoot exists. Two or three sentences are enough.</p>
+        {% if page.cards %}
+        <div class="story-cards">
+          {% for card in page.cards %}
+          <article class="story-card">
+            {% if card.icon %}<div class="icon"><i class="{{ card.icon }}"></i></div>{% endif %}
+            {% if card.title %}<h3>{{ card.title }}</h3>{% endif %}
+            {% if card.text %}<p>{{ card.text }}</p>{% endif %}
+          </article>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </section>
+      {% endif %}
 
-      <div class="story-cards">
-        <article class="story-card">
-          <div class="icon"><i class="fas fa-shoe-prints"></i></div>
-          <h3>On the Move</h3>
-          <p>Outline how you explored the space. Mention the transitions you made, the textures that stood out, or the rhythm of the shoot.</p>
-        </article>
-        <article class="story-card">
-          <div class="icon"><i class="fas fa-music"></i></div>
-          <h3>Soundtrack</h3>
-          <p>Drop in the tracks or ambient noise that framed the day. A quick Spotify reference keeps things grounded.</p>
-        </article>
-      </div>
-    </section>
+      {% assign gallery = page.gallery | default: page.images %}
+      {% if gallery and gallery.size > 0 %}
+      <section class="photo-story" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="h3 text-uppercase letter-spacing-3">{{ page.gallery_title | default: 'Gallery Highlights' }}</h2>
+        <div class="masonry-gallery{% if page.uniform_gallery %} uniform-gallery{% endif %}">
+          {% for item in gallery %}
+            {% if item.src %}
+              {% assign src = item.src %}
+              {% assign tall = item.tall %}
+            {% else %}
+              {% assign src = item %}
+              {% assign tall = false %}
+            {% endif %}
+            <div class="masonry-item{% if tall %} tall{% endif %}">
+              <a href="{{ src | relative_url }}" class="image-link"><img src="{{ src | relative_url }}" alt="{{ page.title }} {{ forloop.index }}" /></a>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
 
-    <section class="photo-story" data-aos="fade-up" data-aos-delay="100">
-      <h2 class="h3 text-uppercase letter-spacing-3">Gallery Highlights</h2>
-      <div class="masonry-gallery">
-        <div class="masonry-item tall">
-          <a href="../../../images/projects/example/001.jpg" class="image-link"><img src="../../../images/projects/example/001.jpg" alt="Highlight 1" /></a>
-        </div>
-        <div class="masonry-item">
-          <a href="../../../images/projects/example/002.jpg" class="image-link"><img src="../../../images/projects/example/002.jpg" alt="Highlight 2" /></a>
-        </div>
-        <div class="masonry-item">
-          <a href="../../../images/projects/example/003.jpg" class="image-link"><img src="../../../images/projects/example/003.jpg" alt="Highlight 3" /></a>
-        </div>
-        <div class="masonry-item tall">
-          <a href="../../../images/projects/example/004.jpg" class="image-link"><img src="../../../images/projects/example/004.jpg" alt="Highlight 4" /></a>
-        </div>
-        <div class="masonry-item">
-          <a href="../../../images/projects/example/005.jpg" class="image-link"><img src="../../../images/projects/example/005.jpg" alt="Highlight 5" /></a>
-        </div>
-        <div class="masonry-item">
-          <a href="../../../images/projects/example/006.jpg" class="image-link"><img src="../../../images/projects/example/006.jpg" alt="Highlight 6" /></a>
-        </div>
-      </div>
-    </section>
+      <section class="project-nav" data-aos="fade-up" data-aos-delay="200">
+        {% if page.prev_url or page.next_url %}
+          <p class="note">Navigate between photography projects.</p>
+          <div class="d-flex flex-wrap gap-3">
+            {% if page.prev_url %}
+              <a href="{{ page.prev_url | relative_url }}" class="btn-arrow"><i class="fas fa-arrow-left"></i> Previous</a>
+            {% else %}
+              <a href="#" class="btn-arrow disabled" aria-disabled="true"><i class="fas fa-arrow-left"></i> Previous</a>
+            {% endif %}
+            {% if page.next_url %}
+              <a href="{{ page.next_url | relative_url }}" class="btn-arrow">Next project <i class="fas fa-arrow-right"></i></a>
+            {% else %}
+              <a href="#" class="btn-arrow disabled" aria-disabled="true">Next project <i class="fas fa-arrow-right"></i></a>
+            {% endif %}
+          </div>
+        {% else %}
+          <p class="note">Return to Portfolio</p>
+          <div><a href="{{ '/portfolio.html' | relative_url }}" class="btn-arrow"><i class="fas fa-arrow-left"></i> Portfolio</a></div>
+        {% endif %}
+      </section>
+    </main>
 
-    <section class="photo-story" data-aos="fade-up" data-aos-delay="150">
-      <h2 class="h3 text-uppercase letter-spacing-3">Behind the Frame</h2>
-      <div class="story-cards">
-        <article class="story-card">
-          <div class="icon"><i class="fas fa-person-hiking"></i></div>
-          <h3>Field Notes</h3>
-          <p>Swap in bullet points or paragraphs detailing unexpected moments, challenges, or serendipity.</p>
-        </article>
-        <article class="story-card">
-          <div class="icon"><i class="fas fa-flask"></i></div>
-          <h3>Experiment</h3>
-          <p>Call out the settings you tweaked or film stocks you tested. Readers love practical details they can try.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="project-nav" data-aos="fade-up" data-aos-delay="200">
-      <p class="note">Replace the links below to point to adjacent photography projects.</p>
-      <div class="d-flex flex-wrap gap-3">
-        <a href="#" class="btn-arrow disabled" aria-disabled="true"><i class="fas fa-arrow-left"></i> Previous</a>
-        <a href="#" class="btn-arrow">Next project <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </section>
-  </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../../../js/jquery-1.11.0.min.js"></script>
-  <script src="../../../js/plugins.js"></script>
-  <script src="../../../js/script.js?v=3"></script>
-  <script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ '/js/jquery-1.11.0.min.js' | relative_url }}"></script>
+    <script src="{{ '/js/plugins.js' | relative_url }}"></script>
+    <script src="{{ '/js/script.js?v=3' | relative_url }}"></script>
+    <script>
     // Subtle parallax on hero image stack (desktop only)
     (function() {
       const media = document.getElementById('floatingMedia');
@@ -446,6 +447,6 @@
         media.addEventListener('mouseleave', reset);
       }
     })();
-  </script>
-</body>
-</html>
+    </script>
+  </body>
+ </html>

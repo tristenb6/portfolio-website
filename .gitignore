@@ -1,1 +1,8 @@
 .env
+
+# Jekyll build output (built by GitHub Pages)
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+vendor/
