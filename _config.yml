@@ -9,6 +9,7 @@ plugins:
 exclude:
   - templates
   - node_modules
+  - BLOG.md
 
 collections:
   photography:
@@ -21,6 +22,7 @@ defaults:
       type: "posts"
     values:
       layout: post
+      permalink: /blog/:title/
   - scope:
       path: ""
       type: "photography"

@@ -1,6 +1,7 @@
 ---
 layout: null
 title: Tristen - Blog
+permalink: /blog/
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -165,9 +166,9 @@ title: Tristen - Blog
 
           <nav class="fullscreen-menu-nav">
             <ul class="list-unstyled">
-              <li><a href="index.html" class="menu-link">Home</a></li>
-              <li><a href="portfolio.html" class="menu-link">Portfolio</a></li>
-              <li><a href="blog.html" class="menu-link active">Blog</a></li>
+              <li><a href="{{ '/' | relative_url }}" class="menu-link">Home</a></li>
+              <li><a href="{{ '/portfolio.html' | relative_url }}" class="menu-link">Portfolio</a></li>
+              <li><a href="{{ '/blog/' | relative_url }}" class="menu-link active">Blog</a></li>
             </ul>
           </nav>
 
@@ -190,9 +191,9 @@ title: Tristen - Blog
         <div class="text-light-custom content-title fw-bold" data-animate-title data-aos="fade-right" data-aos-duration="1000">Tristen</div>
 
         <div class="top-nav d-none d-lg-flex align-items-center gap-3" data-aos="fade-left" data-aos-duration="1000">
-          <a href="index.html" class="btn btn-custom">Home</a>
-          <a href="portfolio.html" class="btn btn-custom">Portfolio</a>
-          <a href="blog.html" class="btn btn-custom active">Blog</a>
+          <a href="{{ '/' | relative_url }}" class="btn btn-custom">Home</a>
+          <a href="{{ '/portfolio.html' | relative_url }}" class="btn btn-custom">Portfolio</a>
+          <a href="{{ '/blog/' | relative_url }}" class="btn btn-custom active">Blog</a>
         </div>
 
         <button class="menu-toggle-btn btn d-flex align-items-center gap-2 d-lg-none" data-aos="fade-left"
@@ -233,7 +234,7 @@ title: Tristen - Blog
                 <div class="media-badge"><i class="fas fa-sparkles"></i>Fresh drop</div>
               </a>
               {% else %}
-              <a href="blog/first-launch.html" class="feature-media">
+              <a href="/blog/first-launch/" class="feature-media">
                 <img src="images/post1-preview.jpg" alt="Launch post thumbnail" class="img-fluid">
                 <div class="media-badge"><i class="fas fa-sparkles"></i>Fresh drop</div>
               </a>
@@ -252,7 +253,7 @@ title: Tristen - Blog
                   {% if latest %}
                   <a href="{{ latest.url | relative_url }}">{{ latest.title }}</a>
                   {% else %}
-                  <a href="blog/first-launch.html">Launching My First Website &mdash; and Capping Graduate Studies at UNC</a>
+                  <a href="/blog/first-launch/">Launching My First Website &mdash; and Capping Graduate Studies at UNC</a>
                   {% endif %}
                 </h3>
                 <p class="feature-excerpt">
@@ -263,13 +264,42 @@ title: Tristen - Blog
               {% if latest %}
               <a href="{{ latest.url | relative_url }}" class="feature-cta">Read the story <i class="fas fa-arrow-right"></i></a>
               {% else %}
-              <a href="blog/first-launch.html" class="feature-cta">Read the story <i class="fas fa-arrow-right"></i></a>
+              <a href="/blog/first-launch/" class="feature-cta">Read the story <i class="fas fa-arrow-right"></i></a>
               {% endif %}
             </article>
           </div>
         </div>
 
-        <!-- Pagination removed for single featured post -->
+        {% if site.posts.size > 1 %}
+        <div class="row justify-content-center mt-4">
+          <div class="col-12 col-xl-10">
+            <div class="section-header mb-3">
+              <span class="section-kicker">Recent Posts</span>
+            </div>
+            <div class="row g-3 g-md-4">
+              {% for post in site.posts offset:1 %}
+              <div class="col-12 col-md-6 col-lg-4">
+                <article class="depth-card h-100 p-0" data-aos="fade-up">
+                  <a href="{{ post.url | relative_url }}" class="image-link d-block">
+                    {% if post.thumbnail %}
+                    <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title | escape }}" class="img-fluid rounded-4">
+                    {% endif %}
+                  </a>
+                  <div class="p-3 p-md-3 p-lg-3">
+                    <div class="d-flex flex-wrap gap-2 text-uppercase small text-muted">
+                      <span><i class="fas fa-calendar"></i> {{ post.date | date: "%B %-d, %Y" }}</span>
+                      {% if post.tag %}<span><i class="fas fa-bolt"></i> {{ post.tag }}</span>{% endif %}
+                    </div>
+                    <h4 class="mt-2 mb-1"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
+                    <p class="mb-0">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+                  </div>
+                </article>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% endif %}
 
       </div>
     </div>
@@ -301,11 +331,11 @@ title: Tristen - Blog
   <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- JQuery js -->
-  <script src="js/jquery-1.11.0.min.js"></script>
-  <!-- Plugins js -->
-  <script src="js/plugins.js"></script>
-  <!-- Script js -->
-  <script src="js/script.js"></script>
+  <script src="{{ '/js/jquery-1.11.0.min.js' | relative_url }}"></script>
+  <!-- Plugins js (includes AOS) -->
+  <script src="{{ '/js/plugins.js' | relative_url }}"></script>
+  <!-- Site script (initialises AOS, etc.) -->
+  <script src="{{ '/js/script.js' | relative_url }}"></script>
 </body>
 
 </html>

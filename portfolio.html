@@ -1,3 +1,7 @@
+---
+layout: null
+permalink: /portfolio.html
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -171,7 +175,7 @@
             <ul class="list-unstyled">
               <li><a href="index.html" class="menu-link">Home</a></li>
               <li><a href="portfolio.html" class="menu-link active">Portfolio</a></li>
-              <li><a href="blog.html" class="menu-link">Blog</a></li>
+              <li><a href="{{ '/blog/' | relative_url }}" class="menu-link">Blog</a></li>
             </ul>
           </nav>
 
@@ -198,7 +202,7 @@
         <div class="top-nav d-none d-lg-flex align-items-center gap-3" data-aos="fade-left" data-aos-duration="1000">
           <a href="index.html" class="btn btn-custom">Home</a>
           <a href="portfolio.html" class="btn btn-custom active">Portfolio</a>
-          <a href="blog.html" class="btn btn-custom">Blog</a>
+          <a href="{{ '/blog/' | relative_url }}" class="btn btn-custom">Blog</a>
         </div>
 
         <button class="menu-toggle-btn btn d-flex align-items-center gap-2 d-lg-none" data-aos="fade-left"
