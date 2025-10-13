@@ -20,7 +20,7 @@ layout: null
   <!-- Swiper JS CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <!-- custom style CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
 
 <body>
@@ -171,8 +171,8 @@ layout: null
 
           <nav class="fullscreen-menu-nav">
             <ul class="list-unstyled">
-              <li><a href="index.html" class="menu-link active">Home</a></li>
-              <li><a href="portfolio.html" class="menu-link">Portfolio</a></li>
+              <li><a href="{{ '/' | relative_url }}" class="menu-link active">Home</a></li>
+              <li><a href="{{ '/portfolio.html' | relative_url }}" class="menu-link">Portfolio</a></li>
               <li><a href="{{ '/blog/' | relative_url }}" class="menu-link">Blog</a></li>
             </ul>
           </nav>
@@ -200,8 +200,8 @@ layout: null
         </div>
 
         <div class="top-nav d-none d-lg-flex align-items-center gap-3" data-aos="fade-left" data-aos-duration="1000">
-          <a href="index.html" class="btn btn-custom active">Home</a>
-          <a href="portfolio.html" class="btn btn-custom">Portfolio</a>
+          <a href="{{ '/' | relative_url }}" class="btn btn-custom active">Home</a>
+          <a href="{{ '/portfolio.html' | relative_url }}" class="btn btn-custom">Portfolio</a>
           <a href="{{ '/blog/' | relative_url }}" class="btn btn-custom">Blog</a>
         </div>
 
@@ -812,11 +812,11 @@ layout: null
 <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- JQuery js -->
-  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="{{ '/js/jquery-1.11.0.min.js' | relative_url }}"></script>
   <!-- Plugins js -->
-  <script src="js/plugins.js"></script>
+  <script src="{{ '/js/plugins.js' | relative_url }}"></script>
   <!-- Script js -->
-  <script src="js/script.js"></script>
+  <script src="{{ '/js/script.js' | relative_url }}"></script>
 </body>
 
 </html>
